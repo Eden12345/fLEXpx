@@ -1,5 +1,10 @@
 # README
 
+Hey y'all, welcome to the fLEXpx GitHub repo. This will eventually be a
+500px clone ;)
+
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
