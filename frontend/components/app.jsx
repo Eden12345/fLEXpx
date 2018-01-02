@@ -7,7 +7,7 @@ import SignUpContainer from './session/sign_up_container';
 const App = () => (
   <div>
     <NavBarContainer />
-    <h1>fLEX for That px, Bro!</h1>
+    <h1>fLEXpx</h1>
     <Switch>
       <Route path='/login' component={LoginContainer}/>
       <Route path='/signup' component={SignUpContainer}/>
