@@ -125,6 +125,10 @@ body {
   outline: 0;
 }
 
+.profile-image {
+  cursor: pointer;
+}
+
 .profile-dropdown-hidden {
   display: none;
   visibility: hidden;
@@ -146,13 +150,15 @@ body {
 .profile-name {
   font-size: 26px;
   padding: 5px;
-  border-bottom: 1px solid lightgrey;
+  font-weight: lighter;
+  /* border-bottom: 1px solid lightgrey; */
 }
 
 .logout-button {
   border: none;
   padding-top: 10px;
   cursor: pointer;
+  font-size: 15px;
 }
 
 .logout-button:hover {

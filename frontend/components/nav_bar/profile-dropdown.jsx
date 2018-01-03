@@ -30,7 +30,7 @@ class ProfileDropdown extends React.Component {
     return (
       <nav className="profile-logout">
         <button className="profile-dropdown-parent">
-          <img src={window.floatingHead}
+          <img src="https://i.imgur.com/ESoIh20.png"
             id="menu-button"
             className="profile-image"
             onClick={this.toggleMenu}/>
