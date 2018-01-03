@@ -35,6 +35,14 @@ body {
   border-radius: 2px;
 }
 
+
+
+
+
+
+
+
+
 /* NAV BAR */
 
 .nav-bar {
@@ -66,17 +74,13 @@ body {
   width: 200px;
   justify-content: space-between;
   align-items: center;
-  padding-right: 40px;
+  padding-right: 0px;
 }
 
 .site-name {
   padding-left: 40px;
   font-size: 26px;
   font-weight: lighter;
-}
-
-.logout-button {
-
 }
 
 .sign-up-button {
@@ -98,6 +102,72 @@ body {
 .login-button:hover {
   color: blue;
 }
+
+
+
+
+
+
+
+
+
+
+/* PROFILE DROPDOWN MENU */
+
+.profile-dropdown-parent {
+  background-color: white;
+  border: none;
+  padding-top: 5px;
+  position: relative;
+}
+
+.profile-dropdown-parent:focus {
+  outline: 0;
+}
+
+.profile-dropdown-hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.profile-dropdown-content {
+  background-color: white;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-top: 10px;
+  height: 80px;
+  width: 80px;
+  color: #4D4D4D;
+}
+
+.profile-name {
+  font-size: 26px;
+  padding: 5px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.logout-button {
+  border: none;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  color: blue;
+}
+
+
+
+
+
+
+
+
+
+
 
 /* SESSION FORM */
 
@@ -143,6 +213,9 @@ body {
   width: 312px;
   height: 28px;
   margin-top: 5px;
+  padding-left: 5px;
+  font-size: 15px;
+  color: #4D4D4D;
   /* margin: auto; */
 }
 

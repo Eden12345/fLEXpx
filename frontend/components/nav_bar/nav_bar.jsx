@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ProfileDropdown from "./profile-dropdown";
 
 // &nbsp;or&nbsp
 
@@ -10,18 +11,10 @@ const sessionLinks = () => (
   </nav>
 );
 
-const personalGreeting = (currentUser, logout) => (
-	<nav className="profile-logout">
-    <h2 className="header-name">{currentUser.username}</h2>
-    <img src="https://www.fancyhands.com/images/default-avatar-250x250.png" className="profile-image"></img>
-    <button className="button logout-button" onClick={logout}>Log Out</button>
-	</nav>
-);
-
 const NavBar = ({currentUser, logout}) => (
   <section className="nav-bar">
     <h1 className="site-name">fLEXpx</h1>
-    {currentUser ? personalGreeting(currentUser, logout) : sessionLinks()}
+    {currentUser ? <ProfileDropdown currentUser={currentUser} logout={logout} /> : sessionLinks()}
   </section>
 );
 
