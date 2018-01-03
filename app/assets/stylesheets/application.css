@@ -54,7 +54,7 @@ body {
 
 .login-signup {
   display: flex;
-  width: 200px;
+  width: 160px;
   justify-content: space-between;
   align-items: center;
   padding-right: 40px;
@@ -82,10 +82,10 @@ body {
 .sign-up-button {
   border: none;
   border-radius: 0px;
-  padding-top: 16px;
+  padding-top: 17px;
   padding-bottom: 16px;
-  padding-right: 30px;
-  padding-left: 30px;
+  padding-right: 18px;
+  padding-left: 18px;
   background-color: #34bf49;
   color: white;
 }
