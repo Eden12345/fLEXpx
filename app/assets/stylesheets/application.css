@@ -16,13 +16,14 @@
 
 * {
   font-family: "Tondo", "Helvetica Neue", Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-weight: lighter;
 }
 
 body {
   background-image: url("https://i.imgur.com/QudBfkr.jpg");
   background-size: cover;
 }
+
+/* NAV BAR */
 
 .nav-bar {
   display: flex;
@@ -33,16 +34,37 @@ body {
   background-color: white;
 }
 
-.login-form-container {
-  display: flex;
-  justify-content: center;
+.profile-image {
+  height: 75%;
+  width: 50px;
 }
 
-.login-signup-profile {
+.login-signup {
   display: flex;
   width: 150px;
   justify-content: space-between;
+  align-items: center;
+  padding-right: 40px;
 }
+
+.profile-logout {
+  display: flex;
+  width: 200px;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 40px;
+}
+
+.site-name {
+  padding-left: 40px;
+  font-size: 30px;
+}
+
+.logout-button {
+
+}
+
+/* ALL BUTTONS */
 
 .button {
   /* font: 11px Arial; */
@@ -54,9 +76,11 @@ body {
   border-radius: 2px;
 }
 
-.login-input {
-  border-radius: 2px;
-  border: 1px solid #CCCCCC;
+/* SESSION FORM */
+
+.login-form-container {
+  display: flex;
+  justify-content: center;
 }
 
 .login-form-box {
@@ -65,7 +89,33 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 500px;
+  width: 400px;
   height: 500px;
   background-color: white;
+}
+
+.login-form-box > * {
+  padding: 20px;
+}
+
+.login-form * {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.login-input {
+  border-radius: 2px;
+  border: 1px solid #CCCCCC;
+}
+
+.submit-button {
+  padding-left: 130px;
+  padding-right: 130px;
+  border: none;
+  background-color: mediumseagreen;
+  font-size: 16px;
+  color: white;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
