@@ -6,17 +6,23 @@ class SessionForm extends React.Component {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      animation: 'fadeInDown'
     };
-
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleAnimation = this.handleAnimation.bind(this);
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.loggedIn) {
-  //     this.props.history.push('/');
-  //   }
-  // }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.loggedIn === false) {
+      this.setState({animation: 'fadeInDown'});
+      // this.props.history.push('/');}, 1000);
+    }
+  }
+
+  handleAnimation() {
+
+  }
 
   update(field) {
     return e => this.setState({
@@ -27,7 +33,8 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    this.props.processForm({user});
+    this.setState({animation: 'fadeOutUp'});
+    setTimeout(() => {this.props.processForm({user});}, 1000);
   }
 
   navLink() {
@@ -53,7 +60,7 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
+        <form onSubmit={this.handleSubmit} className={`login-form-box animated ${this.state.animation}`}>
           <br/>
           {this.props.formType} below or {this.navLink()}
           {this.renderErrors()}
@@ -74,7 +81,7 @@ class SessionForm extends React.Component {
                 className="login-input"/>
             </label>
             <br/>
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Submit" className="button"/>
           </div>
         </form>
       </div>

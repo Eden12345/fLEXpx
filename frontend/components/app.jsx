@@ -9,7 +9,6 @@ import { AuthRoute } from '../util/route_util';
 const App = () => (
   <div>
     <NavBarContainer />
-    <h1>fLEXpx</h1>
     <Switch>
       <AuthRoute path="/login" component={LoginContainer} />
       <AuthRoute path="/signup" component={SignUpContainer} />
