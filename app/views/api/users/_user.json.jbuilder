@@ -1,5 +1,3 @@
 user = @user if @user
 
-json.currentUser do
-  json.extract! user, :id, :username
-end
+json.extract! user, :id, :username
