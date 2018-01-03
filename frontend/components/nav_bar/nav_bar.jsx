@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const sessionLinks = () => (
   <nav className="login-signup">
-    <Link to="/login" className="button login-button">Login</Link>
+    <Link to="/login" className="button login-button">Log in</Link>
     <Link to="/signup" className="button sign-up-button">Sign Up</Link>
   </nav>
 );
