@@ -36,7 +36,7 @@ class ProfileDropdown extends React.Component {
             onClick={this.toggleMenu}/>
           <div className={this.state.open === true ? "profile-dropdown-content" : "profile-dropdown-hidden"}>
             <p className="profile-name">{this.props.currentUser.username}</p>
-            <div className="button logout-button" onClick={this.logoutAndClose}>Log Out</div>
+            <div className="button logout-button" onClick={this.logoutAndClose}>Log out</div>
           </div>
         </button>
       </nav>

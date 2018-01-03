@@ -143,22 +143,24 @@ body {
   align-items: flex-start;
   padding-top: 10px;
   height: 80px;
-  width: 80px;
+  width: 150px;
   color: #4D4D4D;
 }
 
 .profile-name {
   font-size: 26px;
   padding: 5px;
+  padding-left: 8px;
   font-weight: lighter;
   /* border-bottom: 1px solid lightgrey; */
 }
 
 .logout-button {
   border: none;
+  padding-left: 8px;
   padding-top: 10px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 13px;
 }
 
 .logout-button:hover {
