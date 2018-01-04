@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180102171519) do
+ActiveRecord::Schema.define(version: 20180104172428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "photos", force: :cascade do |t|
+    t.string "title", null: false
+    t.integer "uploader_id", null: false
+    t.integer "preferred_order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["preferred_order"], name: "index_photos_on_preferred_order"
+    t.index ["uploader_id"], name: "index_photos_on_uploader_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
@@ -21,6 +31,10 @@ ActiveRecord::Schema.define(version: 20180102171519) do
     t.string "session_token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "profile_photo_id"
+    t.integer "banner_photo_id"
+    t.index ["banner_photo_id"], name: "index_users_on_banner_photo_id"
+    t.index ["profile_photo_id"], name: "index_users_on_profile_photo_id"
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end

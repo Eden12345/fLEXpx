@@ -5,6 +5,11 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_many :photos,
+    class_name: :Photo,
+    foreign_key: :uploader_id,
+    primary_key: :id
+
   attr_reader :password
 
   def password=(password)
