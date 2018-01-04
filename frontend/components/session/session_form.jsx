@@ -60,10 +60,12 @@ class SessionForm extends React.Component {
     );
   }
 
+  //add "animated" before ${this.state.animation} to bring animations back to session form
+
   render() {
     return (
       <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className={`login-form-box animated ${this.state.animation}`}>
+        <form onSubmit={this.handleSubmit} className={`login-form-box ${this.state.animation}`}>
           <br/>
             <div className="form-title">
               {this.props.formType === "Log in" ? "Log In to fLEXpx" : "Join fLEXpx"}
