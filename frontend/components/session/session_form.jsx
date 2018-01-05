@@ -20,6 +20,10 @@ class SessionForm extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -45,13 +49,8 @@ class SessionForm extends React.Component {
   navLink() {
     if (this.props.formType === 'Log in') {
       return (
-        <div>
-          <div className="other-form-text">Don't have an account?
-            <Link to="/signup" className="other-form-link"> Sign Up</Link>
-          </div>
-          <div className="other-form-text demo-user-text">or&nbsp;
-            <a className="demo-user-link" onClick={this.demoUser}>Log in</a>
-            &nbsp;as Demo User</div>
+        <div className="other-form-text">Don't have an account?
+          <Link to="/signup" className="other-form-link"> Sign up</Link>
         </div>
       );
     } else {
@@ -108,6 +107,9 @@ class SessionForm extends React.Component {
             <input type="submit" value={`${this.props.formType}`} className="button submit-button"/>
           </div>
           {this.navLink()}
+          <div className="other-form-text demo-user-text">or&nbsp;
+            <a className="demo-user-link" onClick={this.demoUser}>Log in</a>
+            &nbsp;as Demo User</div>
         </form>
       </div>
     );

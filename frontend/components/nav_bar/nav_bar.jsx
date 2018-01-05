@@ -7,7 +7,7 @@ import ProfileDropdown from "./profile-dropdown";
 const sessionLinks = () => (
   <nav className="login-signup">
     <Link to="/login" className="button login-button">Log in</Link>
-    <Link to="/signup" className="button sign-up-button">Sign Up</Link>
+    <Link to="/signup" className="button sign-up-button">Sign up</Link>
   </nav>
 );
 
