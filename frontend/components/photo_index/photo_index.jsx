@@ -6,17 +6,21 @@ class PhotoIndex extends React.Component {
     super(props);
   }
 
+  componentWillReceiveProps() {
+  }
+
   componentDidMount() {
-    this.props.getPhotosForUser(this.props.currentUser.id);
+    this.props.getUser(parseInt(this.props.match.params.userId));
+    this.props.getPhotosForUser(parseInt(this.props.match.params.userId));
   }
 
   render() {
     return (
       <ul className="photo-index">
         {Object.values(this.props.photos).map((photo) => {
-          return (
-            <li key={photo.id}><img src={photo.photo_thumb}></img></li>
-          );
+            return (
+              <li key={photo.id}><img src={photo.photo_thumb}></img></li>
+            );
         })}
       </ul>
     );
