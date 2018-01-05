@@ -2,7 +2,7 @@ class Photo < ApplicationRecord
   validates :title, presence: true
   validates :uploader_id, presence: true
 
-  has_attached_file :image
+  has_attached_file :image, styles: {avatar: '100x100#', thumb: '300x300>'}
   validates_attachment_presence :image
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
