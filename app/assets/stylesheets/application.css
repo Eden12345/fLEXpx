@@ -254,3 +254,13 @@ body {
   text-decoration: none;
   color: blue;
 }
+
+.demo-user-text {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.demo-user-link {
+  cursor: pointer;
+  color: blue;
+}

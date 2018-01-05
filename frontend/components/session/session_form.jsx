@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
       animation: 'fadeInDown'
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoUser = this.demoUser.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -25,8 +26,17 @@ class SessionForm extends React.Component {
     });
   }
 
+  demoUser() {
+    this.setState({
+      username: "demo user",
+      password: "demopassword"
+    }, this.handleSubmit);
+  }
+
   handleSubmit(e) {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
     const user = this.state;
     this.setState({animation: 'fadeOutUp'});
     setTimeout(() => {this.props.processForm({user});}, 1000);
@@ -35,8 +45,13 @@ class SessionForm extends React.Component {
   navLink() {
     if (this.props.formType === 'Log in') {
       return (
-        <div className="other-form-text">Don't have an account?
-          <Link to="/signup" className="other-form-link"> Sign Up</Link>
+        <div>
+          <div className="other-form-text">Don't have an account?
+            <Link to="/signup" className="other-form-link"> Sign Up</Link>
+          </div>
+          <div className="other-form-text demo-user-text">or&nbsp;
+            <a className="demo-user-link" onClick={this.demoUser}>Log in</a>
+            &nbsp;as Demo User</div>
         </div>
       );
     } else {
