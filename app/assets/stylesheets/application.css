@@ -245,6 +245,10 @@ body {
   margin-top: 5px;
 }
 
+.submit-button:focus {
+  outline: 0;
+}
+
 .other-form-text {
   font-size: 12px;
   color: grey;

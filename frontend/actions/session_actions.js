@@ -18,10 +18,6 @@ export const clearErrors = errors => ({
   type: CLEAR_ERRORS
 });
 
-//maybe will need to add .responseJSON to the errors arguments below
-//I did need to do that! It's so it goes into an array as a string rather
-//than a weird errors object (thanks Thomas)
-
 export const signup = user => dispatch => {
   return SessionAPIUtil.signup(user).then(responseUser => {
     return dispatch(receiveCurrentUser(responseUser));
