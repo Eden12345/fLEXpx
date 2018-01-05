@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class ProfileDropdown extends React.Component {
   constructor(props) {
@@ -36,7 +37,8 @@ class ProfileDropdown extends React.Component {
             onClick={this.toggleMenu}/>
           <div className={this.state.open === true ? "profile-dropdown-content" : "profile-dropdown-hidden"}>
             <p className="profile-name">{this.props.currentUser.username}</p>
-            <div className="button logout-button" onClick={this.logoutAndClose}>Log out</div>
+            <Link to={`/profile/${this.props.currentUser.id}`} className="button dropdown-button profile-link">My profile</Link>
+            <div className="button dropdown-button" onClick={this.logoutAndClose}>Log out</div>
           </div>
         </button>
       </nav>

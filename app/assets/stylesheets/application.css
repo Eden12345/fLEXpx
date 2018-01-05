@@ -58,6 +58,7 @@ body {
 .profile-image {
   height: 75%;
   width: 36px;
+  height: 36px;
 }
 
 .login-signup {
@@ -142,7 +143,7 @@ body {
   justify-content: flex-start;
   align-items: flex-start;
   padding-top: 10px;
-  height: 80px;
+  height: 108px;
   width: 150px;
   color: #4D4D4D;
 }
@@ -155,7 +156,7 @@ body {
   /* border-bottom: 1px solid lightgrey; */
 }
 
-.logout-button {
+.dropdown-button {
   border: none;
   padding-left: 8px;
   padding-top: 10px;
@@ -163,7 +164,7 @@ body {
   font-size: 13px;
 }
 
-.logout-button:hover {
+.dropdown-button:hover {
   color: #0188FE;
 }
 
