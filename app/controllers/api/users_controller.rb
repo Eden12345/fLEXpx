@@ -3,6 +3,7 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      login_user(@user)
       render "/api/users/_user.json.jbuilder"
     elsif User.find_by(username: @user.username) != nil
       render json: ["This username has already been taken"], status: 404
