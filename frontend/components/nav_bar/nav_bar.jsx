@@ -68,7 +68,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <section className={`nav-bar ${this.state.navbar}`}>
-        <h1 className="site-name">fLEXpx</h1>
+        <Link to="/homefeed" className={`button site-name ${this.state.sitename}`}>fLEXpx</Link>
         {this.props.currentUser ? <ProfileDropdown
           currentUser={this.props.currentUser}
           logout={this.props.logout} /> : this.sessionLinks()}

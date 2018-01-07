@@ -86,7 +86,7 @@ class SessionForm extends React.Component {
             </div>
           <div className="login-form">
             <br/>
-            <label htmlFor="username">Username:</label>
+            <label htmlFor="username">Username</label>
               <input type="text"
                 id="username"
                 value={this.state.username}
@@ -94,7 +94,7 @@ class SessionForm extends React.Component {
                 className="login-input login-input-username"
               />
             <br/>
-            <label htmlFor="password">Password:</label>
+            <label htmlFor="password">Password</label>
               <input type="password"
                 id="password"
                 value={this.state.password}

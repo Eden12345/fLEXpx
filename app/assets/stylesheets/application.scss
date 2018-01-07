@@ -142,13 +142,23 @@ body {
 }
 
 .site-name {
-  padding-left: 40px;
   font-size: 26px;
   font-weight: lighter;
+  border: none;
+  background: none;
+  margin-left: 40px;
+}
+
+.site-name:hover {
+  color: $hoverblue;
 }
 
 .site-name-landing {
+  cursor: default;
+}
 
+.site-name-landing:hover {
+  color: black;
 }
 
 .login-signup {
@@ -199,9 +209,9 @@ body {
   font-size: 13px;
 }
 
-.login-button-landing:hover {
-  color: black;
-}
+// .login-button-landing:hover {
+//   color: black;
+// }
 
 
 
@@ -330,6 +340,11 @@ body {
   font-size: 15px;
   color: $textgrey;
   /* margin: auto; */
+}
+
+.login-input:focus {
+  outline: 0;
+  border: 1px solid $buttonblue;
 }
 
 .submit-button {
