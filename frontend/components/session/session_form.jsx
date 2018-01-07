@@ -73,6 +73,8 @@ class SessionForm extends React.Component {
   }
 
   //add "animated" before ${this.state.animation} to bring animations back to session form
+  //NOTE: You'll also need to change the AuthRoute for LoginContainer and SignUpContainer
+  //back to Route for the fadeOutUp animation to ever get set
 
   render() {
     return (
