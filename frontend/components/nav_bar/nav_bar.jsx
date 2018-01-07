@@ -4,18 +4,77 @@ import ProfileDropdown from "./profile-dropdown";
 
 // &nbsp;or&nbsp
 
-const sessionLinks = () => (
-  <nav className="login-signup">
-    <Link to="/login" className="button login-button">Log in</Link>
-    <Link to="/signup" className="button sign-up-button">Sign up</Link>
-  </nav>
-);
+class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      navbar: '',
+      sitename: '',
+      logsi: '',
+      login: '',
+      signup: ''
+    };
+    this.sessionLinks = this.sessionLinks.bind(this);
+    this.landingPage = this.landingPage.bind(this);
+    this.regularPage = this.regularPage.bind(this);
+  }
 
-const NavBar = ({currentUser, logout}) => (
-  <section className="nav-bar nav-bar-landing">
-    <h1 className="site-name">fLEXpx</h1>
-    {currentUser ? <ProfileDropdown currentUser={currentUser} logout={logout} /> : sessionLinks()}
-  </section>
-);
+  componentDidMount() {
+    if (this.props.location.pathname === "/landing") {
+      this.landingPage();
+    } else {
+      this.regularPage();
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.location.pathname === "/landing") {
+      this.landingPage();
+    } else {
+      this.regularPage();
+    }
+  }
+
+  landingPage() {
+    this.setState({
+      navbar: 'nav-bar-landing',
+      sitename: 'site-name-landing',
+      logsi: 'login-sign-up-landing',
+      login: 'login-button-landing',
+      signup: 'sign-up-button-landing'
+    });
+  }
+
+  regularPage() {
+    this.setState({
+      navbar: '',
+      sitename: '',
+      logsi: '',
+      login: '',
+      signup: ''
+    });
+  }
+
+
+  sessionLinks() {
+    return (
+      <nav className={`login-signup ${this.state.logsi}`}>
+        <Link to="/login" className={`button login-button ${this.state.login}`}>Log in</Link>
+        <Link to="/signup" className={`button sign-up-button ${this.state.signup}`}>Sign up</Link>
+      </nav>
+    );
+  }
+
+  render() {
+    return (
+      <section className={`nav-bar ${this.state.navbar}`}>
+        <h1 className="site-name">fLEXpx</h1>
+        {this.props.currentUser ? <ProfileDropdown
+          currentUser={this.props.currentUser}
+          logout={this.props.logout} /> : this.sessionLinks()}
+      </section>
+    );
+  }
+}
 
 export default NavBar;
