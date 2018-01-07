@@ -14,9 +14,11 @@ class SessionForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.loggedIn === false) {
-      this.setState({animation: 'fadeInDown'});
-      // this.props.history.push('/');}, 1000);
+    if (nextProps.loggedIn === true) {
+      this.setState({animation: 'fadeOutUp'});
+      setTimeout(() => {this.props.history.push('/homefeed');}, 2000);
+    } else if (nextProps.errors.length > 0){
+      this.setState({animation: 'bounce'});
     }
   }
 
@@ -40,7 +42,7 @@ class SessionForm extends React.Component {
     }
     const user = this.state;
     this.setState({animation: 'fadeOutUp'});
-    setTimeout(() => {this.props.processForm({user});}, 1000);
+    this.props.processForm({user});
   }
 
   navLink() {
@@ -76,7 +78,7 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className={`login-form-box ${this.state.animation}`}>
+        <form onSubmit={this.handleSubmit} className={`login-form-box animated ${this.state.animation}`}>
           <br/>
             <div className="form-title">
               {this.props.formType === "Log in" ? "Log In to fLEXpx" : "Join fLEXpx"}

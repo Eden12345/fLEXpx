@@ -57,12 +57,26 @@ class NavBar extends React.Component {
 
 
   sessionLinks() {
-    return (
-      <nav className={`login-signup ${this.state.logsi}`}>
-        <Link to="/login" className={`button login-button ${this.state.login}`}>Log in</Link>
-        <Link to="/signup" className={`button sign-up-button ${this.state.signup}`}>Sign up</Link>
-      </nav>
-    );
+    if (this.props.location.pathname === "/login") {
+      return(
+        <nav className="login-signup at-login-form">
+          <Link to="/signup" className={`button sign-up-button ${this.state.signup}`}>Sign up</Link>
+        </nav>
+      );
+    } else if (this.props.location.pathname === "/signup") {
+      return(
+        <nav className="login-signup at-sign-up-form">
+          <Link to="/login" className={`button login-button ${this.state.login}`}>Log in</Link>
+        </nav>
+      );
+    } else {
+      return (
+        <nav className={`login-signup ${this.state.logsi}`}>
+          <Link to="/login" className={`button login-button ${this.state.login}`}>Log in</Link>
+          <Link to="/signup" className={`button sign-up-button ${this.state.signup}`}>Sign up</Link>
+        </nav>
+      );
+    }
   }
 
   render() {

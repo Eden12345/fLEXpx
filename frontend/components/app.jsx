@@ -14,8 +14,8 @@ const App = () => (
     <NavBarContainer />
     <Route exact path="/" render={() => <Redirect to="/landing"/>}/>
     <AuthRoute exact path="/landing" component={LandingPage} />
-    <AuthRoute path="/login" component={LoginContainer} />
-    <AuthRoute path="/signup" component={SignUpContainer} />
+    <Route path="/login" component={LoginContainer} />
+    <Route path="/signup" component={SignUpContainer} />
     <ProtectedRoute path="/homefeed" component={HomeFeedContainer} />
     <Route path="/profile/:userId" component={ProfilePageContainer} />
   </div>
