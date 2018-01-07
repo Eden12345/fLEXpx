@@ -2,7 +2,9 @@ class Api::SessionsController < ApplicationController
   def create
     @user = User.find_by_credentials(params[:user][:username], params[:user][:password])
 
-    if @user
+    if current_user
+      render json: ["You are already logged in"], status: 404
+    elsif @user
       login_user(@user)
       render "/api/users/_user.json.jbuilder"
     else
