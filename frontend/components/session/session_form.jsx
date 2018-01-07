@@ -41,7 +41,6 @@ class SessionForm extends React.Component {
       e.preventDefault();
     }
     const user = this.state;
-    this.setState({animation: 'fadeOutUp'});
     this.props.processForm({user});
   }
 
@@ -78,7 +77,7 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className={`login-form-box animated ${this.state.animation}`}>
+        <form onSubmit={this.handleSubmit} className={`login-form-box ${this.state.animation}`}>
           <br/>
             <div className="form-title">
               {this.props.formType === "Log in" ? "Log In to fLEXpx" : "Join fLEXpx"}
