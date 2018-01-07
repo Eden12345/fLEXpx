@@ -12,7 +12,7 @@ const sessionLinks = () => (
 );
 
 const NavBar = ({currentUser, logout}) => (
-  <section className="nav-bar">
+  <section className="nav-bar nav-bar-landing">
     <h1 className="site-name">fLEXpx</h1>
     {currentUser ? <ProfileDropdown currentUser={currentUser} logout={logout} /> : sessionLinks()}
   </section>

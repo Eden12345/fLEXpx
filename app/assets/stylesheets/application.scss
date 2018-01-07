@@ -14,14 +14,66 @@
  *= require_self
  */
 
+$green: #34bf49;
+$bordergrey: #EDEDED;
+$midlightgrey: #CCCCCC;
+$textgrey: #4D4D4D;
+
+
 * {
   font-family: "Tondo", "Helvetica Neue", Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 body {
+  /* background-image: url("https://s3.us-east-2.amazonaws.com/flexpx-dev/background.jpeg");
+  background-size: cover; */
+  background-color: #F7F7F7;
+}
+
+/* MAIN WRAPPER (APP COMPONENT) */
+
+.main-wrapper {
+  position: relative;
+}
+
+
+
+
+
+
+
+
+
+/* LANDING PAGE */
+
+.background-image {
   background-image: url("https://s3.us-east-2.amazonaws.com/flexpx-dev/background.jpeg");
   background-size: cover;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: -1;
 }
+
+.test {
+  height: 10px;
+  width: 10px;
+  background-color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ALL BUTTONS */
 
@@ -31,7 +83,7 @@ body {
   background-color: white;
   color: #333333;
   padding: 2px 6px 2px 6px;
-  border: 1px solid #CCCCCC;
+  border: 1px solid $midlightgrey;
   border-radius: 2px;
 }
 
@@ -49,10 +101,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* border-bottom: 1px solid grey; */
+  border-bottom: 1px solid $bordergrey;
   height: 48px;
   background-color: white;
   /* background-color: rgba(0, 0, 0, 0.1); */
+}
+
+.nav-bar-landing {
+  position: relative;
+  z-index: 1;
+  background: none;
 }
 
 .profile-image {
@@ -91,13 +149,13 @@ body {
   padding-bottom: 16px;
   padding-right: 18px;
   padding-left: 18px;
-  background-color: #34bf49;
+  background-color: $green;
   color: white;
 }
 
 .login-button {
   border: none;
-  color: #4D4D4D;
+  color: $textgrey;
 }
 
 .login-button:hover {
@@ -137,20 +195,24 @@ body {
 
 .profile-dropdown-content {
   background-color: white;
+  margin-top: 3px;
+  border-left: 1px solid $bordergrey;
+  border-right: 1px solid $bordergrey;
+  border-bottom: 1px solid $bordergrey;
   position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   padding-top: 10px;
-  height: 108px;
+  height: 96px;
   width: 150px;
-  color: #4D4D4D;
+  color: $textgrey;
 }
 
 .profile-name {
   font-size: 26px;
-  padding: 5px;
+  padding-bottom: 2px;
   padding-left: 8px;
   font-weight: lighter;
   /* border-bottom: 1px solid lightgrey; */
@@ -198,11 +260,12 @@ body {
   background-color: white;
   color: grey;
   font-size: 15px;
+  border: 1px solid $bordergrey;
 }
 
 .form-title {
   font-size: 26px;
-  color: #4D4D4D;
+  color: $textgrey;
   margin-top: 26px;
 }
 
@@ -218,13 +281,13 @@ body {
 
 .login-input {
   border-radius: 2px;
-  border: 1px solid #CCCCCC;
+  border: 1px solid $midlightgrey;
   width: 312px;
   height: 28px;
   margin-top: 5px;
   padding-left: 5px;
   font-size: 15px;
-  color: #4D4D4D;
+  color: $textgrey;
   /* margin: auto; */
 }
 
@@ -239,7 +302,7 @@ body {
   justify-content: center;
   align-items: center;
   border: none;
-  background-color: #34bf49;
+  background-color: $green;
   font-size: 16px;
   color: white;
   cursor: pointer;
