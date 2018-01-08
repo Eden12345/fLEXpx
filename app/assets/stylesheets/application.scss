@@ -511,6 +511,10 @@ body {
   cursor: pointer;
 }
 
+.profile-photo-index-item-photo:hover {
+  filter: brightness(50%);
+}
+
 .maximized-photo {
   top: 0;
   left: 0;
@@ -518,5 +522,6 @@ body {
   width: 100vw;
   position: fixed;
   z-index: 5;
-  object-fit: cover;
+  object-fit: contain;
+  background: black;
 }
