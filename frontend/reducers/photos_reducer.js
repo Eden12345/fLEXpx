@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 
-import {RECEIVE_PHOTOS} from '../actions/photo_actions';
+import {RECEIVE_PHOTOS, RECEIVE_PHOTO} from '../actions/photo_actions';
 
 const defaultState = Object.freeze({});
 
@@ -10,7 +10,7 @@ const photosReducer = (oldState = defaultState, action) => {
     case RECEIVE_PHOTOS:
       const photos = action.photos;
       return merge({}, photos);
-    case RECEIVE_PHOTOS:
+    case RECEIVE_PHOTO:
       const photo = action.photo;
       return merge({}, photo);
     default:
