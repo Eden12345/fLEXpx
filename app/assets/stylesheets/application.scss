@@ -461,9 +461,11 @@ body {
 }
 
 .profile-username {
-  font-size: 26px;
+  font-size: 36px;
+  color: $textgrey;
+  letter-spacing: 1px;
   font-weight: lighter;
-  margin-top: 580px;
+  margin-top: 575px;
 }
 
 .photo-index {
