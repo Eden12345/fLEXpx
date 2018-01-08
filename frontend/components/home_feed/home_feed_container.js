@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
+
 import HomeFeed from './home_feed';
+import { getPhotosForUser } from '../../actions/photo_actions';
 
-// import { logout } from '../../actions/session_actions';
-// import NavBar from './nav_bar';
+const mapStateToProps = ({ session, entities }) => ({
+  currentUser: session.currentUser,
+  photos: entities.photos
+});
 
-// const mapStateToProps = ({ session }) => ({
-//   currentUser: session.currentUser
-// });
-//
-// const mapDispatchToProps = dispatch => ({
-//   logout: () => dispatch(logout())
-// });
+const mapDispatchToProps = dispatch => ({
+  getPhotosForUser: (userId) => dispatch(getPhotosForUser(userId))
+});
 
-export default connect()(HomeFeed);
+export default connect(mapStateToProps, mapDispatchToProps)(HomeFeed);

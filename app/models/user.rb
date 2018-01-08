@@ -22,6 +22,15 @@ class User < ApplicationRecord
     primary_key: :id,
     optional: true
 
+  has_many :follows,
+    class_name: :Follow,
+    foreign_key: :follower_id,
+    primary_key: :id
+
+  has_many :followees,
+    through: :follows
+
+
   attr_reader :password
 
   def password=(password)
