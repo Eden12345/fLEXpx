@@ -35,9 +35,13 @@ class ProfilePage extends React.Component {
       );
     } else {
       return (
-        <div className="profile-header">
-          <div>profile banner</div>
-          <div>profile photo</div>
+        <div className="profile-header profile-header-missing-banner">
+          <div className="banner-photo missing-banner-photo"></div>
+          <img src="https://s3.us-east-2.amazonaws.com/flexpx-dev/avatar.png"
+            className="profile-photo profile-photo-missing-banner"></img>
+          <p className="profile-username missing-banner-username">
+            {profilePageOwner ? profilePageOwner.username : ""}
+          </p>
         </div>
       );
     }

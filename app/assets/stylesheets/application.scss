@@ -434,7 +434,12 @@ body {
   width: 100%;
   height: 680px;
   position: relative;
-  z-index: -7
+  z-index: -7;
+  border-bottom: 1px solid $bordergrey;
+}
+
+.profile-header-missing-banner {
+  height: 400px;
 }
 
 .banner-photo {
@@ -448,16 +453,28 @@ body {
   // border-bottom: 1px solid $bordergrey;
 }
 
+.missing-banner-photo {
+  height: 220px;
+  border-bottom: 1px solid $bordergrey;
+}
+
 .profile-photo {
   display: float;
   border-radius: 50%;
   margin: auto;
   border: 2px solid white;
-  padding-top: -100px;
-  padding-left: -100px;
+  // padding-top: -100px;
+  // padding-left: -100px;
   position: absolute;
   z-index: -5;
   margin-top: 450px;
+  height: 100px;
+  width: 100px;
+}
+
+.profile-photo-missing-banner {
+  border: none;
+  margin-top: 172px;
 }
 
 .profile-username {
@@ -466,6 +483,10 @@ body {
   letter-spacing: 1px;
   font-weight: lighter;
   margin-top: 575px;
+}
+
+.missing-banner-username {
+  margin-top: 295px;
 }
 
 .photo-index {

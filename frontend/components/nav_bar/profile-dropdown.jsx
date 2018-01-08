@@ -14,8 +14,10 @@ class ProfileDropdown extends React.Component {
   }
 
   componentDidMount() {
-    // const avatarId = this.props.currentUser.profile_photo_id;
-    // this.props.getPhoto(avatarId);
+    const avatarId = this.props.currentUser.profile_photo_id;
+    if (avatarId) {
+      this.props.getPhoto(avatarId);
+    }
   }
 
   toggleMenu(e) {
