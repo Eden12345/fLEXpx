@@ -508,4 +508,15 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  cursor: pointer;
+}
+
+.maximized-photo {
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 5;
+  object-fit: cover;
 }

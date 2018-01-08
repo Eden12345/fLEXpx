@@ -4,10 +4,14 @@ import { Link, withRouter } from 'react-router-dom';
 class PhotoIndex extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   loaded: false
-    // };
-    // this.displayPhotos = this.displayPhotos.bind(this);
+    this.state = {
+      maximize: null,
+      animation: ""
+    };
+    this.displayPhotos = this.displayPhotos.bind(this);
+    this.turnOnMaximize = this.turnOnMaximize.bind(this);
+    this.turnOffMaximize = this.turnOffMaximize.bind(this);
+    this.maximizePhoto = this.maximizePhoto.bind(this);
   }
 
   componentDidMount() {
@@ -23,6 +27,26 @@ class PhotoIndex extends React.Component {
     }
   }
 
+  turnOnMaximize(photoId) {
+    this.setState({maximize: photoId});
+    this.setState({animation: "fadeIn"});
+  }
+
+  turnOffMaximize() {
+    this.setState({animation: "fadeOut"});
+    setTimeout(() => this.setState({maximize: null}), 1000);
+  }
+
+  maximizePhoto(photo) {
+    if (this.state.maximize === photo.id) {
+      return (
+        <img src={photo.large}
+          className={`maximized-photo animated ${this.state.animation}`}
+          onClick={(e) => {e.stopPropagation(); this.turnOffMaximize();}}></img>
+      );
+    }
+  }
+
   displayPhotos() {
     console.log(this.props.users[parseInt(this.props.match.params.userId)]);
     console.log(this.props.photos);
@@ -34,7 +58,9 @@ class PhotoIndex extends React.Component {
             return (
               <li key={photo.id} className="profile-photo-index-item">
                 <img src={photo.thumb}
-                  className="profile-photo-index-item-photo"></img>
+                  className="profile-photo-index-item-photo"
+                  onClick={(e) => {e.stopPropagation(); this.turnOnMaximize(photo.id);}}></img>
+                {this.maximizePhoto(photo)}
               </li>
             );
           } else {
@@ -50,12 +76,6 @@ class PhotoIndex extends React.Component {
       );
     }
   }
-
-  // {Object.values(this.props.photos).map((photo) => {
-  //   return (
-  //     <li key={photo.id} className="profile-photo-item"><img src={photo.thumb}></img></li>
-  //   );
-  // })}
 
   render() {
     return (
