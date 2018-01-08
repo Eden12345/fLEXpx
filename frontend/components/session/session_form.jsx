@@ -33,7 +33,7 @@ class SessionForm extends React.Component {
   }
 
   demoUser() {
-    this.props.login({user: {username: "eden", password: "starwars"}});
+    this.props.login({user: {username: "demo user", password: "demopassword"}});
   }
 
   handleSubmit(e) {
