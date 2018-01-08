@@ -1,15 +1,20 @@
 import { connect } from 'react-redux';
-
-import ProfilePage from './profile_page';
 import { withRouter } from 'react-router-dom';
 
+import ProfilePage from './profile_page';
+import { getUser } from '../../actions/user_actions';
+import { getPhoto } from '../../actions/photo_actions';
 
-const mapStateToProps = ({ session }) => ({
-  currentUser: session.currentUser
+
+const mapStateToProps = ({ session, entities }) => ({
+  currentUser: session.currentUser,
+  photos: entities.photos,
+  users: entities.users
 });
 
-//eventually we'll need a mapDispatchToProps for getPhoto (an action I'll write later)
-//so that we can fetch the banner photo and avatar photo from the database
-//(maybe even getUser, too?)
+const mapDispatchToProps = dispatch => ({
+  getPhoto: (photoId) => dispatch(getPhoto(photoId)),
+  getUser: (userId) => dispatch(getUser(userId))
+});
 
-export default withRouter(connect(mapStateToProps)(ProfilePage));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProfilePage));

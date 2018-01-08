@@ -4,3 +4,10 @@ export const getPhotosForUser = (userId) => {
       method: "get"
   });
 };
+
+export const getPhoto = (photoId) => {
+  return $.ajax ({
+      url: `api/photos/${photoId}`,
+      method: "get"
+  });
+};

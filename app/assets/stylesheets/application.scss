@@ -134,6 +134,10 @@ body {
   height: 36px;
 }
 
+.nav-bar-avatar {
+  border-radius: 50px;
+}
+
 .profile-logout {
   display: flex;
   width: 200px;
@@ -397,4 +401,61 @@ body {
 .demo-user-link {
   cursor: pointer;
   color: blue;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* PROFILE PAGE */
+
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  height: 700px;
+  border-bottom: 1px solid $bordergrey;
+}
+
+.banner-photo {
+  display: float;
+  object-fit: cover;
+  width: 100%;
+  height: 500px;
+}
+
+.profile-photo {
+  display: float;
+  border-radius: 50%;
+  margin: auto;
+  border: 2px solid white;
+  padding-top: -100px;
+  padding-left: -100px;
+}
+
+.photo-index {
+  margin: 100px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profile-photo-item {
+  padding: 5px;
+  height: 100px;
+  width: 250px;
+  object-fit: cover;
 }

@@ -9,8 +9,13 @@ class ProfileDropdown extends React.Component {
     };
     this.toggleMenu = this.toggleMenu.bind(this);
     this.logoutAndClose = this.logoutAndClose.bind(this);
+    this.renderAvatar = this.renderAvatar.bind(this);
   }
 
+  componentDidMount() {
+    const avatarId = this.props.currentUser.profile_photo_id;
+    // this.props.getPhoto(avatarId);
+  }
 
   toggleMenu(e) {
     e.stopPropagation();
@@ -27,14 +32,33 @@ class ProfileDropdown extends React.Component {
     this.props.logout();
   }
 
+  //The below method is only working when you navigate to "My profile"
+  //because then a getPhotosForUser request is made
+
+  renderAvatar() {
+    const avatarId = this.props.currentUser.profile_photo_id;
+    if (avatarId && (this.props.photos[avatarId] && this.props.photos[avatarId].avatar)) {
+      return (
+        <img src={this.props.photos[avatarId].avatar}
+          id="menu-button"
+          className="profile-image nav-bar-avatar"
+          onClick={this.toggleMenu}/>
+      );
+    } else {
+      return (
+        <img src="https://s3.us-east-2.amazonaws.com/flexpx-dev/avatar.png"
+          id="menu-button"
+          className="profile-image"
+          onClick={this.toggleMenu}/>
+      );
+    }
+  }
+
   render() {
     return (
       <nav className="profile-logout">
         <button className="profile-dropdown-parent">
-          <img src="https://s3.us-east-2.amazonaws.com/flexpx-dev/avatar.png"
-            id="menu-button"
-            className="profile-image"
-            onClick={this.toggleMenu}/>
+          {this.renderAvatar()}
           <div className={this.state.open === true ? "profile-dropdown-content" : "profile-dropdown-hidden"}>
             <p className="profile-name">{this.props.currentUser.username}</p>
             <Link to={`/profile/${this.props.currentUser.id}`} className="button dropdown-button profile-link">My profile</Link>

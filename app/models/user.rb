@@ -10,6 +10,18 @@ class User < ApplicationRecord
     foreign_key: :uploader_id,
     primary_key: :id
 
+  belongs_to :banner_photo,
+    class_name: :Photo,
+    foreign_key: :banner_photo_id,
+    primary_key: :id,
+    optional: true
+
+  belongs_to :profile_photo,
+    class_name: :Photo,
+    foreign_key: :profile_photo_id,
+    primary_key: :id,
+    optional: true
+
   attr_reader :password
 
   def password=(password)

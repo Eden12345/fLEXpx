@@ -85,7 +85,9 @@ class NavBar extends React.Component {
         <Link to="/homefeed" className={`button site-name ${this.state.sitename}`}>fLEXpx</Link>
         {this.props.currentUser ? <ProfileDropdown
           currentUser={this.props.currentUser}
-          logout={this.props.logout} /> : this.sessionLinks()}
+          logout={this.props.logout}
+          getPhoto={this.props.getPhoto}
+          photos={this.props.photos} /> : this.sessionLinks()}
       </section>
     );
   }
