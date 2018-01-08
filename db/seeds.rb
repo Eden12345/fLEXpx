@@ -46,7 +46,7 @@ h.save!
 i = Photo.new(title: "waterfall", uploader_id: 9)
 i.image = "https://s3.us-east-2.amazonaws.com/flexpx-dev/waterfall.jpeg"
 i.save!
-j = Photo.new(title: "forestbridge", uploader_id: 3)
+j = Photo.new(title: "forestbridge", uploader_id: 9)
 j.image = "https://s3.us-east-2.amazonaws.com/flexpx-dev/forest-bridge.jpeg"
 j.save!
 
