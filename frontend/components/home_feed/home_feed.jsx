@@ -25,9 +25,15 @@ class HomeFeed extends React.Component {
             const profilePhotoId = that.props.users[userId].profile_photo_id;
             return (
               <li key={that.props.photos[uploadId].id} className="home-feed-item">
-                <p>{that.props.users[userId].username}</p>
-                <img src={profilePhotoId ? that.props.photos[profilePhotoId].avatar : "https://s3.us-east-2.amazonaws.com/flexpx-dev/avatar.png"} />
-                <img src={that.props.photos[uploadId].medium} className="home-feed-photo"/>
+                <div className="home-feed-item-header">
+                  <img src={profilePhotoId ? that.props.photos[profilePhotoId].avatar : "https://s3.us-east-2.amazonaws.com/flexpx-dev/avatar.png"}
+                    className="home-feed-avatar" />
+                  <p className="home-feed-username">{that.props.users[userId].username}</p>
+                </div>
+                <img src={that.props.photos[uploadId].large} className="home-feed-photo"/>
+                <div className="home-feed-title-container">
+                  <p className="home-feed-title">{that.props.photos[uploadId].title}</p>
+                </div>
               </li>
             );
           }
