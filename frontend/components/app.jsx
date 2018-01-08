@@ -17,7 +17,7 @@ const App = () => (
     <AuthRoute path="/login" component={LoginContainer} />
     <AuthRoute path="/signup" component={SignUpContainer} />
     <ProtectedRoute path="/homefeed" component={HomeFeedContainer} />
-    <Route path="/profile/:userId" component={ProfilePageContainer} />
+    <ProtectedRoute path="/profile/:userId" component={ProfilePageContainer} />
   </div>
 );
 

@@ -30,6 +30,7 @@ class ProfilePage extends React.Component {
             className="banner-photo"></img>
           <img src={this.props.photos[profilePageOwner.profile_photo_id].avatar}
             className="profile-photo"></img>
+          <p className="profile-username">{profilePageOwner ? profilePageOwner.username : ""}</p>
         </div>
       );
     } else {
