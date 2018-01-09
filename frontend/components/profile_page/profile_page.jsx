@@ -22,7 +22,29 @@ class ProfilePage extends React.Component {
   }
 
   followButton() {
+    if (parseInt(this.props.match.params.userId) === this.props.currentUser.id) {
+      return (
+        <div></div>
+      );
+    } else {
 
+      if (this.props.currentUser.followeeIds.includes(parseInt(this.props.match.params.userId))) {
+        return (
+          <div className="button unfollow-button"
+            onClick={(e) => {
+              e.stopPropagation();
+              this.props.unFollowUser(parseInt(this.props.match.params.userId));}}>Unfollow</div>
+        );
+      } else {
+        return (
+          <div className="button follow-button"
+            onClick={(e) => {
+              e.stopPropagation();
+              this.props.followUser(parseInt(this.props.match.params.userId));}}>Follow</div>
+        );
+      }
+
+    }
   }
 
   profileHeader() {

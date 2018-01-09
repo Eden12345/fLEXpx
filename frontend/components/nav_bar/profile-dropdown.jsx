@@ -64,7 +64,7 @@ class ProfileDropdown extends React.Component {
       return (
         <img src="https://s3.us-east-2.amazonaws.com/flexpx-dev/avatar.png"
           id="menu-button"
-          className="profile-image"/>
+          className="profile-image stock-avatar"/>
       );
     }
   }
