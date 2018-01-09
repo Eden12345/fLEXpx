@@ -7,6 +7,7 @@ class ProfilePage extends React.Component {
   constructor(props) {
     super(props);
     this.profileHeader = this.profileHeader.bind(this);
+    this.followButton = this.followButton.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -20,6 +21,10 @@ class ProfilePage extends React.Component {
     this.props.getUser(parseInt(this.props.match.params.userId));
   }
 
+  followButton() {
+
+  }
+
   profileHeader() {
     const profilePageOwner = this.props.users[parseInt(this.props.match.params.userId)];
     if ((profilePageOwner && this.props.photos) && this.props.photos[profilePageOwner.banner_photo_id]) {
@@ -30,6 +35,7 @@ class ProfilePage extends React.Component {
           <img src={this.props.photos[profilePageOwner.profile_photo_id] ? this.props.photos[profilePageOwner.profile_photo_id].avatar : "https://s3.us-east-2.amazonaws.com/flexpx-dev/avatar.png"}
             className="profile-photo"></img>
           <p className="profile-username">{profilePageOwner ? profilePageOwner.username : ""}</p>
+          {this.followButton()}
         </div>
       );
     } else if (profilePageOwner && this.props.photos) {
@@ -41,9 +47,11 @@ class ProfilePage extends React.Component {
           <p className="profile-username missing-banner-username">
             {profilePageOwner ? profilePageOwner.username : ""}
           </p>
+          {this.followButton()}
         </div>
       );
     } else {
+      //maybe we don't need the following method?
       return (
         <div className="profile-header profile-header-missing-banner">
           <div className="banner-photo missing-banner-photo"></div>

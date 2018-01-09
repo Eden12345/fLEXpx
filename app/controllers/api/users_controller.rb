@@ -26,7 +26,7 @@ class Api::UsersController < ApplicationController
 
     if current_user == @user
       @user.update(user_params)
-      render "/api/users/show.json.jbuilder"
+      render "/api/users/_user.json.jbuilder"
     else
       render json: ["How did you try and even edit this profile?"], status: 404
     end
