@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
 import HomeFeed from './home_feed';
-import { getPhotosForUser } from '../../actions/photo_actions';
-import { getUser } from '../../actions/user_actions';
+import { getPhotosForUser, getAllPhotos } from '../../actions/photo_actions';
+import { getUser, getAllUsers } from '../../actions/user_actions';
 
 const mapStateToProps = ({ session, entities }) => ({
   currentUser: session.currentUser,
@@ -11,6 +11,8 @@ const mapStateToProps = ({ session, entities }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  getAllUsers: () => dispatch(getAllUsers()),
+  getAllPhotos: () => dispatch(getAllPhotos()),
   getPhotosForUser: (userId) => dispatch(getPhotosForUser(userId)),
   getUser: (userId) => dispatch(getUser(userId))
 });

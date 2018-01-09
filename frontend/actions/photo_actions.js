@@ -13,6 +13,12 @@ export const receivePhoto = photo => ({
   photo
 });
 
+export const getAllPhotos = () => dispatch => {
+  return PhotoAPIUtil.getAllPhotos().then(photos => {
+    return dispatch(receivePhotos(photos));
+  });
+};
+
 export const getPhotosForUser = userId => dispatch => {
   return PhotoAPIUtil.getPhotosForUser(userId).then(photos => {
     return dispatch(receivePhotos(photos));

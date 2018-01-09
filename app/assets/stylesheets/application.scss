@@ -348,10 +348,10 @@ body {
 }
 
 .login-input {
-  border-radius: 2px;
+  border-radius: 3px;
   border: 1px solid $midlightgrey;
   width: 312px;
-  height: 28px;
+  height: 30px;
   margin-top: 5px;
   padding-left: 5px;
   font-size: 15px;
@@ -369,8 +369,9 @@ body {
   padding-right: 130px;
   padding-top: 10px;
   padding-bottom: 10px; */
-  width: 316px;
-  height: 36px;
+  width: 320px;
+  height: 38px;
+  border-radius: 3px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -548,12 +549,16 @@ body {
   align-items: center;
 }
 
+.no-followees-text {
+  padding-top: 30px;
+}
+
 .home-feed-item {
   border: 1px solid $bordergrey;
   border-radius: 3px;
   background: white;
   width: 900px;
-  height: 745px;
+  height: 645px;
   margin: 50px;
 }
 
@@ -565,8 +570,8 @@ body {
 
 .home-feed-avatar {
   border-radius: 50%;
-  height: 50px;
-  width: 50px;
+  height: 45px;
+  width: 45px;
 }
 
 .home-feed-username {
@@ -585,6 +590,8 @@ body {
 .home-feed-photo {
   padding: 0px;
   width: 900px;
+  height: 500px;
+  object-fit: cover;
 }
 
 .home-feed-title-container {
