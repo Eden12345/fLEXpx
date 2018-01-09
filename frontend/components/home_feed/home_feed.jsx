@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 class HomeFeed extends React.Component {
@@ -28,7 +29,9 @@ class HomeFeed extends React.Component {
                 <div className="home-feed-item-header">
                   <img src={profilePhotoId ? that.props.photos[profilePhotoId].avatar : "https://s3.us-east-2.amazonaws.com/flexpx-dev/avatar.png"}
                     className="home-feed-avatar" />
-                  <p className="home-feed-username">{that.props.users[userId].username}</p>
+                  <Link to={`profile/${userId}`} className="home-feed-username">
+                    {that.props.users[userId].username}
+                  </Link>
                 </div>
                 <img src={that.props.photos[uploadId].large} className="home-feed-photo"/>
                 <div className="home-feed-title-container">
