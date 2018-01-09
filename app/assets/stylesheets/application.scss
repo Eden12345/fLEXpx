@@ -579,17 +579,28 @@ body {
   letter-spacing: 1px;
   font-weight: lighter;
   margin-top: 575px;
+  margin-bottom: 10px;
 }
 
 .missing-banner-username {
   margin-top: 295px;
 }
 
-.follow-button {
+.follow-button:after {
+  cursor: pointer;
+}
+
+.follow-button:hover {
+  border: 1px solid $green;
   cursor: pointer;
 }
 
 .unfollow-button {
+  cursor: pointer;
+}
+
+.unfollow-button:hover {
+  border: 1px solid $green;
   cursor: pointer;
 }
 
