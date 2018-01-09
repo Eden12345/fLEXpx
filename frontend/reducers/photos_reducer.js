@@ -9,10 +9,10 @@ const photosReducer = (oldState = defaultState, action) => {
   switch(action.type) {
     case RECEIVE_PHOTOS:
       const photos = action.photos;
-      return merge({}, photos);
+      return merge({}, oldState, photos);
     case RECEIVE_PHOTO:
       const photo = action.photo;
-      return merge({}, photo);
+      return merge({}, oldState, photo);
     default:
       return oldState;
   }

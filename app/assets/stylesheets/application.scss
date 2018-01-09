@@ -245,8 +245,9 @@ body {
 .profile-dropdown-parent {
   background-color: white;
   border: none;
-  padding-top: 5px;
+  padding-top: 9px;
   position: relative;
+  padding-bottom: 7px;
 }
 
 .profile-dropdown-parent:focus {
@@ -264,7 +265,7 @@ body {
 
 .profile-dropdown-content {
   background-color: white;
-  margin-top: 6px;
+  margin-top: 7px;
   border-left: 1px solid $bordergrey;
   border-right: 1px solid $bordergrey;
   border-bottom: 1px solid $bordergrey;
