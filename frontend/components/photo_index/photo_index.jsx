@@ -40,9 +40,12 @@ class PhotoIndex extends React.Component {
   maximizePhoto(photo) {
     if (this.state.maximize === photo.id) {
       return (
-        <img src={photo.large}
-          className={`maximized-photo animated ${this.state.animation}`}
-          onClick={(e) => {e.stopPropagation(); this.turnOffMaximize();}}></img>
+        <div className={`maxmaximized-photo-container animated ${this.state.animation}`}>
+          <img src={photo.large}
+            className={`maximized-photo animated ${this.state.animation}`}></img>
+          <p className="x-mark"
+            onClick={(e) => {e.stopPropagation(); this.turnOffMaximize();}}>×</p>
+        </div>
       );
     }
   }

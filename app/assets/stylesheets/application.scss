@@ -17,6 +17,7 @@
 $green: #34bf49;
 $bordergrey: #EDEDED;
 $midlightgrey: #CCCCCC;
+$mediumgrey: #AFAEAE;
 $textgrey: #4D4D4D;
 $buttonblue: #0099e5;
 $hoverblue: #0188FE;
@@ -517,6 +518,10 @@ body {
   filter: brightness(50%);
 }
 
+.maximized-photo-container {
+
+}
+
 .maximized-photo {
   top: 0;
   left: 0;
@@ -526,6 +531,19 @@ body {
   z-index: 5;
   object-fit: contain;
   background: black;
+}
+
+.x-mark {
+  color: white;
+  text-shadow: 0px 0px 10px black;
+  font-size: 50px;
+  position: fixed;
+  margin-top: 5px;
+  margin-right: 20px;
+  top: 0;
+  right: 0;
+  z-index: 6;
+  cursor: pointer;
 }
 
 
@@ -550,7 +568,14 @@ body {
 }
 
 .no-followees-text {
-  padding-top: 30px;
+  color: $mediumgrey;
+  font-size: 26px;
+  text-align: center;
+  padding: 60px;
+  padding-right: 200px;
+  padding-left: 200px;
+  padding-bottom: 20px;
+  padding-top: 60px;
 }
 
 .home-feed-item {
