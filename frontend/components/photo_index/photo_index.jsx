@@ -57,6 +57,7 @@ class PhotoIndex extends React.Component {
                     id: this.props.currentUser.id,
                     profile_photo_id: photo.id
                   }});
+                  this.turnOffMaximize();
                 }}>Set as profile picture</p>
               <p className="edit-profile-options-item banner-photo-set"
                 onClick={(e) => {
@@ -65,6 +66,7 @@ class PhotoIndex extends React.Component {
                     id: this.props.currentUser.id,
                     banner_photo_id: photo.id
                   }});
+                  this.turnOffMaximize();
                 }}>Set as banner photo</p>
             </div>
           </div>
