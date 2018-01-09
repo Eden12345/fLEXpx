@@ -420,6 +420,92 @@ body {
 
 
 
+
+/* HOME FEED */
+
+.home-feed {
+  padding-top: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no-followees-text {
+  color: $mediumgrey;
+  font-size: 26px;
+  text-align: center;
+  padding: 60px;
+  padding-right: 200px;
+  padding-left: 200px;
+  padding-bottom: 20px;
+  padding-top: 60px;
+}
+
+.home-feed-item {
+  border: 1px solid $bordergrey;
+  border-radius: 3px;
+  background: white;
+  width: 900px;
+  height: 645px;
+  margin: 50px;
+}
+
+.home-feed-item-header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+
+.home-feed-avatar {
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+}
+
+.home-feed-username {
+  color: black;
+  font-size: 26px;
+  font-weight: lighter;
+  padding-left: 15px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.home-feed-username:hover {
+  color: $hoverblue;
+}
+
+.home-feed-photo {
+  padding: 0px;
+  width: 900px;
+  height: 500px;
+  object-fit: cover;
+}
+
+.home-feed-title-container {
+  display: flex;
+  align-items: center;
+}
+
+.home-feed-title {
+  padding-top: 20px;
+  padding-left: 20px;
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* PROFILE PAGE */
 
 .profile-page {
@@ -546,87 +632,26 @@ body {
   cursor: pointer;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-/* HOME FEED */
-
-.home-feed {
-  padding-top: 36px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.no-followees-text {
-  color: $mediumgrey;
+.edit-profile-options {
+  color: white;
+  text-shadow: 0px 0px 10px black;
   font-size: 26px;
-  text-align: center;
-  padding: 60px;
-  padding-right: 200px;
-  padding-left: 200px;
-  padding-bottom: 20px;
-  padding-top: 60px;
-}
-
-.home-feed-item {
-  border: 1px solid $bordergrey;
-  border-radius: 3px;
-  background: white;
-  width: 900px;
-  height: 645px;
-  margin: 50px;
-}
-
-.home-feed-item-header {
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  z-index: 6;
   display: flex;
   align-items: center;
-  padding: 15px;
 }
 
-.home-feed-avatar {
-  border-radius: 50%;
-  height: 45px;
-  width: 45px;
-}
-
-.home-feed-username {
-  color: black;
-  font-size: 26px;
-  font-weight: lighter;
-  padding-left: 15px;
-  text-decoration: none;
+.edit-profile-options-item {
   cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  margin: 25px;
 }
 
-.home-feed-username:hover {
-  color: $hoverblue;
-}
-
-.home-feed-photo {
-  padding: 0px;
-  width: 900px;
-  height: 500px;
-  object-fit: cover;
-}
-
-.home-feed-title-container {
-  display: flex;
-  align-items: center;
-}
-
-.home-feed-title {
-  padding-top: 20px;
-  padding-left: 20px;
-  font-size: 20px;
-  font-weight: lighter;
+.edit-profile-options-item:hover {
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }

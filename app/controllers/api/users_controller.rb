@@ -21,9 +21,22 @@ class Api::UsersController < ApplicationController
     render "/api/users/show.json.jbuilder"
   end
 
+  def update
+    @user = User.find(params[:id])
+
+    if current_user == @user
+      @user.update(user_params)
+      render "/api/users/show.json.jbuilder"
+    else
+      render json: ["How did you try and even edit this profile?"], status: 404
+    end
+  end
+
+
+
   private
 
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :banner_photo_id, :profile_photo_id)
   end
 end

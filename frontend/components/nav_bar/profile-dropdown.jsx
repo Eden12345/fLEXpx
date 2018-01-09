@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class ProfileDropdown extends React.Component {
   constructor(props) {
@@ -18,6 +18,15 @@ class ProfileDropdown extends React.Component {
     if (avatarId) {
       this.props.getPhoto(avatarId);
     }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    // if (nextProps.location.pathname !== this.props.location.pathname) {
+    //   const avatarId = this.props.currentUser.profile_photo_id;
+    //   if (avatarId) {
+    //     this.props.getPhoto(avatarId);
+    //   }
+    // }
   }
 
   toggleMenu(e) {
@@ -77,7 +86,7 @@ class ProfileDropdown extends React.Component {
   }
 }
 
-export default ProfileDropdown;
+export default withRouter(ProfileDropdown);
 
 //display: none;
 //visibility: hidden;

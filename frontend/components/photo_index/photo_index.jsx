@@ -25,6 +25,9 @@ class PhotoIndex extends React.Component {
       this.props.getUser(parseInt(nextProps.match.params.userId));
       this.props.getPhotosForUser(parseInt(nextProps.match.params.userId));
     }
+    // else if (nextProps.currentUser !== this.props.currentUser)
+    // this.props.getUser(parseInt(nextProps.match.params.userId));
+    // this.props.getPhotosForUser(parseInt(nextProps.match.params.userId));
   }
 
   turnOnMaximize(photoId) {
@@ -39,21 +42,47 @@ class PhotoIndex extends React.Component {
 
   maximizePhoto(photo) {
     if (this.state.maximize === photo.id) {
-      return (
-        <div className={`maxmaximized-photo-container animated ${this.state.animation}`}>
-          <img src={photo.large}
-            className={`maximized-photo animated ${this.state.animation}`}></img>
-          <p className="x-mark"
-            onClick={(e) => {e.stopPropagation(); this.turnOffMaximize();}}>×</p>
-        </div>
-      );
+      if (parseInt(this.props.match.params.userId) === this.props.currentUser.id) {
+        return (
+          <div className={`maxmaximized-photo-container animated ${this.state.animation}`}>
+            <img src={photo.large}
+              className={`maximized-photo animated ${this.state.animation}`}></img>
+            <p className="x-mark"
+              onClick={(e) => {e.stopPropagation(); this.turnOffMaximize();}}>×</p>
+            <div className="edit-profile-options">
+              <p className="edit-profile-options-item profile-photo-set"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  this.props.updateUser({user: {
+                    id: this.props.currentUser.id,
+                    profile_photo_id: photo.id
+                  }});
+                }}>Set as profile picture</p>
+              <p className="edit-profile-options-item banner-photo-set"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  this.props.updateUser({user: {
+                    id: this.props.currentUser.id,
+                    banner_photo_id: photo.id
+                  }});
+                }}>Set as banner photo</p>
+            </div>
+          </div>
+        );
+      } else {
+        return (
+          <div className={`maxmaximized-photo-container animated ${this.state.animation}`}>
+            <img src={photo.large}
+              className={`maximized-photo animated ${this.state.animation}`}></img>
+            <p className="x-mark"
+              onClick={(e) => {e.stopPropagation(); this.turnOffMaximize();}}>×</p>
+          </div>
+        );
+      }
     }
   }
 
   displayPhotos() {
-    console.log(this.props.users[parseInt(this.props.match.params.userId)]);
-    console.log(this.props.photos);
-
     if (this.props.users[parseInt(this.props.match.params.userId)]) {
       return (
         Object.values(this.props.photos).map((photo) => {

@@ -22,15 +22,25 @@ class ProfilePage extends React.Component {
 
   profileHeader() {
     const profilePageOwner = this.props.users[parseInt(this.props.match.params.userId)];
-    if ((profilePageOwner && this.props.photos) && (this.props.photos[profilePageOwner.banner_photo_id] &&
-    this.props.photos[profilePageOwner.profile_photo_id])) {
+    if ((profilePageOwner && this.props.photos) && this.props.photos[profilePageOwner.banner_photo_id]) {
       return (
         <div className="profile-header">
           <img src={this.props.photos[profilePageOwner.banner_photo_id].large}
             className="banner-photo"></img>
-          <img src={this.props.photos[profilePageOwner.profile_photo_id].avatar}
+          <img src={this.props.photos[profilePageOwner.profile_photo_id] ? this.props.photos[profilePageOwner.profile_photo_id].avatar : "https://s3.us-east-2.amazonaws.com/flexpx-dev/avatar.png"}
             className="profile-photo"></img>
           <p className="profile-username">{profilePageOwner ? profilePageOwner.username : ""}</p>
+        </div>
+      );
+    } else if (profilePageOwner && this.props.photos) {
+      return (
+        <div className="profile-header profile-header-missing-banner">
+          <div className="banner-photo missing-banner-photo"></div>
+          <img src={this.props.photos[profilePageOwner.profile_photo_id] ? this.props.photos[profilePageOwner.profile_photo_id].avatar : "https://s3.us-east-2.amazonaws.com/flexpx-dev/avatar.png"}
+            className="profile-photo profile-photo-missing-banner"></img>
+          <p className="profile-username missing-banner-username">
+            {profilePageOwner ? profilePageOwner.username : ""}
+          </p>
         </div>
       );
     } else {
