@@ -34,23 +34,23 @@ u.save!
 
 # for local db, set id to "3" for demo user ; for heroku, switch id to "6" for demo user
 
-g = Photo.new(title: "mansion", uploader_id: 3)
+g = Photo.new(title: "mansion", uploader_id: 6)
 g.image = "https://s3.us-east-2.amazonaws.com/flexpx-dev/mansion.jpeg"
 g.save!
-h = Photo.new(title: "europe", uploader_id: 3)
+h = Photo.new(title: "europe", uploader_id: 6)
 h.image = "https://s3.us-east-2.amazonaws.com/flexpx-dev/europe-city.jpeg"
 h.save!
 
 # for local db, set id to "9" for extra user; for heroky , switch id to "3" for remy
 
-i = Photo.new(title: "waterfall", uploader_id: 9)
+i = Photo.new(title: "waterfall", uploader_id: 3)
 i.image = "https://s3.us-east-2.amazonaws.com/flexpx-dev/waterfall.jpeg"
 i.save!
-j = Photo.new(title: "forestbridge", uploader_id: 9)
+j = Photo.new(title: "forestbridge", uploader_id: 3)
 j.image = "https://s3.us-east-2.amazonaws.com/flexpx-dev/forest-bridge.jpeg"
 j.save!
 
-x = User.find(9)
+x = User.find(3)
 x.banner_photo_id = i.id
 x.profile_photo_id = j.id
 x.save!
