@@ -11,7 +11,7 @@ class UploadPhoto extends React.Component {
       imageUrl: null
     };
 
-    this.updateBody = this.updateBody.bind(this);
+    this.updateTitle = this.updateTitle.bind(this);
     this.updateFile = this.updateFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.closeForm = this.closeForm.bind(this);
@@ -20,7 +20,7 @@ class UploadPhoto extends React.Component {
   componentWillReceiveProps(nextProps) {
     //NOTE: add getPhotosForUser if currentUser changes so that the new photo
     //will render if you're on your profile page
-    if (nextProps.currentUser.photoIds.length > this.props.currentUser.photoIds.length) {
+    if (Object.keys(nextProps.photos).length > Object.keys(this.props.photos).length) {
       this.closeForm();
     }
   }
@@ -50,8 +50,8 @@ class UploadPhoto extends React.Component {
   handleSubmit (e) {
     // e.stopPropagation();
     const formData = new FormData();
-    formData.append("tweet[title]", this.state.title);
-    if (this.state.imageFile) formData.append("tweet[image]", this.state.imageFile);
+    formData.append("photo[title]", this.state.title);
+    if (this.state.imageFile) formData.append("photo[image]", this.state.imageFile);
     this.props.uploadPhoto(formData);
   }
 
@@ -67,14 +67,17 @@ class UploadPhoto extends React.Component {
 
   render() {
     return (
-      <div className="upload-form-box">
-        <form className="upload-form">
-          <input className="" type="text" onChange={this.updateTitle}/>
-          <input className="file-input" type="file" id="file-selector" onChange={this.updateFile}/>
-          <object className="upload-photo-display" type="image/jpeg" data={this.state.imageUrl}/>
-          <button onClick={this.handleSubmit}>Upload Photo</button>
-        </form>
+      <div className="modal-wrapper">
+        <div className="modal-background"></div>
+        <section className="upload-form-box">
+          <form className="upload-form">
+            <input className="" type="text" onChange={this.updateTitle}/>
+            <input className="file-input" type="file" id="file-selector" onChange={this.updateFile}/>
+            <object className="upload-photo-display" type="image/jpeg" data={this.state.imageUrl}/>
+            <button onClick={this.handleSubmit}>Upload Photo</button>
+          </form>
         <button className="close-form-button" onClick={this.closeForm}>Cancel</button>
+        </section>
       </div>
     );
   }

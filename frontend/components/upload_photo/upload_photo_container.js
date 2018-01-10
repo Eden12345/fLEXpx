@@ -7,6 +7,7 @@ import { withRouter } from 'react-router-dom';
 
 
 const mapStateToProps = ({ entities, session }) => ({
+  photos: entities.photos,
   currentUser: session.currentUser
 });
 

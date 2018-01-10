@@ -92,9 +92,7 @@ class NavBar extends React.Component {
     if (this.props.uploadModalOn) {
 
       return (
-        <div className="modal_wrapper">
-          <UploadPhotoContainer />
-        </div>
+        <UploadPhotoContainer />
       );
     }
   }
@@ -104,7 +102,7 @@ class NavBar extends React.Component {
       <section className={`nav-bar ${this.state.navbar}`}>
         <Link to="/homefeed" className={`button site-name ${this.state.sitename}`}>fLEXpx</Link>
         {this.props.currentUser ?
-          <div>
+          <div className="profile-upload">
             <ProfileDropdown
             currentUser={this.props.currentUser}
             logout={this.props.logout}
