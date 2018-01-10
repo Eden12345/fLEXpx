@@ -15,6 +15,7 @@ class UploadPhoto extends React.Component {
     this.updateFile = this.updateFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.closeForm = this.closeForm.bind(this);
+    this.clickFileSelector = this.clickFileSelector.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -63,20 +64,40 @@ class UploadPhoto extends React.Component {
   }
 
   //How can I add an element like the one below to replace the file-input one that looks ugly?
-  //<div className="button" onClick="document.getElementById('file-selector').click();">Choose a File</div>
+  clickFileSelector(e) {
+    e.preventDefault();
+    this.photoFileInput.click();
+  }
+
+  //In case we need flex for the input options
+  //<div className="upload-input-options"></div>
 
   render() {
     return (
       <div className="modal-wrapper">
         <div className="modal-background"></div>
         <section className="upload-form-box">
+          <p className="upload-form-title">Upload Photo</p>
           <form className="upload-form">
-            <input className="" type="text" onChange={this.updateTitle}/>
-            <input className="file-input" type="file" id="file-selector" onChange={this.updateFile}/>
+              <div className="title-input">
+                <p className="title-input-label">Title</p>
+                <input className="title-input-field"
+                  type="text"
+                  onChange={this.updateTitle}>
+                </input>
+              </div>
+              <div className="file-input-button"
+                onClick={this.clickFileSelector}>Choose File</div>
+            <input className="file-input-hidden"
+              type="file"
+              ref={(input) => { this.photoFileInput = input; }}
+              onChange={this.updateFile}/>
             <object className="upload-photo-display" type="image/jpeg" data={this.state.imageUrl}/>
-            <button onClick={this.handleSubmit}>Upload Photo</button>
+            <div className="upload-form-options">
+              <button className="upload-photo-submit" onClick={this.handleSubmit}>Upload Photo</button>
+              <button className="close-form-button" onClick={this.closeForm}>Cancel</button>
+            </div>
           </form>
-        <button className="close-form-button" onClick={this.closeForm}>Cancel</button>
         </section>
       </div>
     );

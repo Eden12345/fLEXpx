@@ -236,8 +236,25 @@ body {
 .profile-upload {
   display: flex;
   justify-content: space-between;
-  width: 160px;
-  margin-right: 40px;
+  width: 159px;
+  margin-right: 43px;
+}
+
+.upload-button {
+  border: none;
+  border-radius: 0px;
+  padding-top: 17px;
+  padding-bottom: 16px;
+  padding-right: 18px;
+  padding-left: 18px;
+  background-color: $green;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.upload-button:focus {
+  outline: none;
 }
 
 
@@ -347,21 +364,142 @@ body {
 }
 
 .upload-form-box {
+  // margin-top: 100px;
   border-radius: 3px;
-  width: 400px;
-  height: 500px;
+  width: 900px;
+  height: 750px;
   background-color: white;
   color: grey;
   font-size: 15px;
   border: 1px solid $bordergrey;
   position: fixed;
   z-index: 11;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $textgrey;
+}
+
+.upload-form-title {
+  margin: 40px;
+  margin-top: 30px;
+  font-size: 26px;
+}
+
+.upload-form {
+  // padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+// .upload-input-options {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-around;
+//   align-items: center;
+// }
+
+.title-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 16px;
+}
+
+.title-input-field {
+  border-radius: 3px;
+  border: 1px solid $midlightgrey;
+  width: 312px;
+  height: 30px;
+  margin-top: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.title-input-field:focus {
+  outline: none;
+  border: 1px solid $buttonblue;
+}
+
+.file-input-button {
+  margin: 30px;
+  margin-top: 20px;
+  width: 320px;
+  height: 38px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: $green;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+}
+
+.file-input-hidden {
+  visibility: hidden;
+  height: 0px;
+  width: 0px;
 }
 
 .upload-photo-display {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
+  width: 700px;
+  height: 400px;
+  object-fit: contain;
+  border: none;
+  border-radius: 3px;
+}
+
+.upload-form-options {
+  width: 700px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.upload-photo-submit {
+  width: 320px;
+  height: 38px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: $green;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+}
+
+.upload-photo-submit:focus {
+  outline: none;
+}
+
+.close-form-button {
+  width: 320px;
+  height: 38px;
+  border-radius: 3px;
+  border: 1px solid $bordergrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  font-size: 16px;
+  color: $textgrey;;
+  cursor: pointer;
+}
+
+.close-form-button:hover {
+  background: $bordergrey;
+  color: white;
+}
+
+.close-form-button:focus {
+  outline: none;
 }
 
 
