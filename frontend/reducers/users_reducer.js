@@ -19,7 +19,7 @@ const usersReducer = (oldState = defaultState, action) => {
       if (currentUser === null) {
         return oldState;
       } else {
-        return merge({}, oldState, { [currentUser.id]: currentUser });
+        return Object.assign({}, oldState, { [currentUser.id]: currentUser });
       }
     default:
       return oldState;
