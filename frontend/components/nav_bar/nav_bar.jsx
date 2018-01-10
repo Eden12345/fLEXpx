@@ -83,14 +83,15 @@ class NavBar extends React.Component {
     }
   }
 
-  turnOnUploadModal() {
+  turnOnUploadModal(e) {
+    e.preventDefault();
     this.props.switchUploadModal(true);
   }
 
   displayUploadModal() {
     if (this.props.uploadModalOn) {
-      debugger
-      render (
+
+      return (
         <div className="modal_wrapper">
           <UploadPhotoContainer />
         </div>
@@ -110,7 +111,7 @@ class NavBar extends React.Component {
             getPhoto={this.props.getPhoto}
             photos={this.props.photos} />
           <button onClick={this.turnOnUploadModal}>Upload</button>
-          {this.displayUploadModal}
+          {this.displayUploadModal()}
         </div> : this.sessionLinks()}
       </section>
     );

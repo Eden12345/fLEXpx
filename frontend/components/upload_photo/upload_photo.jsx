@@ -5,12 +5,16 @@ var Link = require("react-router").Link;
 class UploadPhoto extends React.Component {
   constructor (props) {
     super(props);
-
     this.state = {
       title: "",
       imageFile: null,
       imageUrl: null
     };
+
+    this.updateBody = this.updateBody.bind(this);
+    this.updateFile = this.updateFile.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.closeForm = this.closeForm.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -21,13 +25,16 @@ class UploadPhoto extends React.Component {
     }
   }
 
-  updateBody (e) {
+  updateTitle (e) {
+    e.preventDefault();
     this.setState({
       title: e.target.value
     });
   }
 
   updateFile (e) {
+    e.preventDefault();
+
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
 
@@ -41,26 +48,33 @@ class UploadPhoto extends React.Component {
   }
 
   handleSubmit (e) {
+    // e.stopPropagation();
     const formData = new FormData();
     formData.append("tweet[title]", this.state.title);
     if (this.state.imageFile) formData.append("tweet[image]", this.state.imageFile);
     this.props.uploadPhoto(formData);
   }
 
-  closeForm() {
-
+  closeForm(e) {
+    if (e) {
+      e.preventDefault();
+    }
+    this.props.switchUploadModal(false);
   }
+
+  //How can I add an element like the one below to replace the file-input one that looks ugly?
+  //<div className="button" onClick="document.getElementById('file-selector').click();">Choose a File</div>
 
   render() {
     return (
-      <div>
-        <form>
-          <input type="text" onChange={this.updateTitle}/>
-          <input type="file" onChange={this.updateFile}/>
-          <object type="image/jpeg" data={this.state.imageUrl}/>
-          <button onClick={this.handleSubmit()}>Upload Photo</button>
+      <div className="upload-form-box">
+        <form className="upload-form">
+          <input className="" type="text" onChange={this.updateTitle}/>
+          <input className="file-input" type="file" id="file-selector" onChange={this.updateFile}/>
+          <object className="upload-photo-display" type="image/jpeg" data={this.state.imageUrl}/>
+          <button onClick={this.handleSubmit}>Upload Photo</button>
         </form>
-        <button onClick={this.closeForm}>Cancel</button>
+        <button className="close-form-button" onClick={this.closeForm}>Cancel</button>
       </div>
     );
   }
