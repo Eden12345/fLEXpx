@@ -30,3 +30,9 @@ export const getPhoto = photoId => dispatch => {
     return dispatch(receivePhoto(photo));
   });
 };
+
+export const uploadPhoto = photoData => dispatch => {
+  return PhotoAPIUtil.uploadPhoto(photoData).then(photo => {
+    return dispatch(receivePhoto(photo));
+  });
+};

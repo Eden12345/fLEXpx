@@ -18,3 +18,14 @@ export const getPhoto = (photoId) => {
       method: "get"
   });
 };
+
+export const uploadPhoto = (photoData) => {
+  return $.ajax ({
+      url: `api/photos/`,
+      method: "post",
+      dataType: "json",
+      contentType: false,
+      processData: false,
+      data: photoData
+  });
+};

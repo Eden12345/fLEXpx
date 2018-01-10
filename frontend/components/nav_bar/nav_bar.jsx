@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ProfileDropdown from "./profile-dropdown";
+import UploadPhotoContainer from "../upload_photo/upload_photo_container";
 
 // &nbsp;or&nbsp
 
@@ -12,11 +13,14 @@ class NavBar extends React.Component {
       sitename: '',
       logsi: '',
       login: '',
-      signup: ''
+      signup: '',
+      uploadModal: false
     };
     this.sessionLinks = this.sessionLinks.bind(this);
     this.landingPage = this.landingPage.bind(this);
     this.regularPage = this.regularPage.bind(this);
+    this.turnOnUploadModal = this.turnOnUploadModal.bind(this);
+    this.displayUploadModal = this.displayUploadModal.bind(this);
   }
 
   componentDidMount() {
@@ -79,15 +83,35 @@ class NavBar extends React.Component {
     }
   }
 
+  turnOnUploadModal() {
+    this.props.switchUploadModal(true);
+  }
+
+  displayUploadModal() {
+    if (this.props.uploadModalOn) {
+      debugger
+      render (
+        <div className="modal_wrapper">
+          <UploadPhotoContainer />
+        </div>
+      );
+    }
+  }
+
   render() {
     return (
       <section className={`nav-bar ${this.state.navbar}`}>
         <Link to="/homefeed" className={`button site-name ${this.state.sitename}`}>fLEXpx</Link>
-        {this.props.currentUser ? <ProfileDropdown
-          currentUser={this.props.currentUser}
-          logout={this.props.logout}
-          getPhoto={this.props.getPhoto}
-          photos={this.props.photos} /> : this.sessionLinks()}
+        {this.props.currentUser ?
+          <div>
+            <ProfileDropdown
+            currentUser={this.props.currentUser}
+            logout={this.props.logout}
+            getPhoto={this.props.getPhoto}
+            photos={this.props.photos} />
+          <button onClick={this.turnOnUploadModal}>Upload</button>
+          {this.displayUploadModal}
+        </div> : this.sessionLinks()}
       </section>
     );
   }
