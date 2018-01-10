@@ -14,6 +14,7 @@ class NavBar extends React.Component {
       logsi: '',
       login: '',
       signup: '',
+      hidebar: '',
       uploadModal: false
     };
     this.sessionLinks = this.sessionLinks.bind(this);
@@ -36,6 +37,12 @@ class NavBar extends React.Component {
       this.landingPage();
     } else {
       this.regularPage();
+    }
+
+    if (nextProps.maximizeOn) {
+      setTimeout(() => this.setState({hidebar: "nav-bar-hidden"}), 1000);
+    } else {
+      this.setState({hidebar: ''});
     }
   }
 
@@ -97,21 +104,39 @@ class NavBar extends React.Component {
   }
 
   render() {
-    return (
-      <section className={`nav-bar ${this.state.navbar}`}>
-        <Link to="/homefeed" className={`button site-name ${this.state.sitename}`}>fLEXpx</Link>
-        {this.props.currentUser ?
-          <div className="profile-upload">
-            <ProfileDropdown
-            currentUser={this.props.currentUser}
-            logout={this.props.logout}
-            getPhoto={this.props.getPhoto}
-            photos={this.props.photos} />
-          <button className="upload-button" onClick={this.turnOnUploadModal}>Upload</button>
-          {this.displayUploadModal()}
-        </div> : this.sessionLinks()}
-      </section>
-    );
+    if (this.props.maximizeOn) {
+      return (
+        <section className={`nav-bar ${this.state.navbar} animated fadeOut ${this.state.hidebar}`}>
+          <Link to="/homefeed" className={`button site-name ${this.state.sitename}`}>fLEXpx</Link>
+          {this.props.currentUser ?
+            <div className="profile-upload">
+              <ProfileDropdown
+                currentUser={this.props.currentUser}
+                logout={this.props.logout}
+                getPhoto={this.props.getPhoto}
+                photos={this.props.photos} />
+              <button className="upload-button" onClick={this.turnOnUploadModal}>Upload</button>
+              {this.displayUploadModal()}
+            </div> : this.sessionLinks()}
+          </section>
+        );
+    } else {
+      return (
+        <section className={`nav-bar ${this.state.navbar} animated fadeIn ${this.state.hidebar}`}>
+          <Link to="/homefeed" className={`button site-name ${this.state.sitename}`}>fLEXpx</Link>
+          {this.props.currentUser ?
+            <div className="profile-upload">
+              <ProfileDropdown
+                currentUser={this.props.currentUser}
+                logout={this.props.logout}
+                getPhoto={this.props.getPhoto}
+                photos={this.props.photos} />
+              <button className="upload-button" onClick={this.turnOnUploadModal}>Upload</button>
+              {this.displayUploadModal()}
+            </div> : this.sessionLinks()}
+          </section>
+        );
+    }
   }
 }
 

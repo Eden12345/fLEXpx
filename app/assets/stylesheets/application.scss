@@ -127,6 +127,14 @@ body {
   // /* background-color: rgba(0, 0, 0, 0.1); */
 }
 
+.nav-bar-hidden {
+  // height: 0px;
+  // width: 0px;
+  // position: absolute;
+  // left: -1000px;
+  display: none;
+}
+
 .nav-bar-landing {
   // position: relative;
   // z-index: 1;

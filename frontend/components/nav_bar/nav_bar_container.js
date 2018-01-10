@@ -10,7 +10,8 @@ import { switchUploadModal } from '../../actions/ui_actions';
 const mapStateToProps = ({ session, entities, ui }) => ({
   currentUser: session.currentUser,
   photos: entities.photos,
-  uploadModalOn: ui.uploadModalOn
+  uploadModalOn: ui.uploadModalOn,
+  maximizeOn: ui.maximizeOn
 });
 
 const mapDispatchToProps = dispatch => ({

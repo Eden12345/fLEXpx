@@ -31,13 +31,17 @@ class PhotoIndex extends React.Component {
   }
 
   turnOnMaximize(photoId) {
+    this.props.switchMaximization(true);
     this.setState({maximize: photoId});
     this.setState({animation: "fadeIn"});
   }
 
   turnOffMaximize() {
     this.setState({animation: "fadeOut"});
-    setTimeout(() => this.setState({maximize: null}), 1000);
+    setTimeout(() => {
+      this.setState({maximize: null});
+      this.props.switchMaximization(false);
+    }, 500);
   }
 
   maximizePhoto(photo) {
