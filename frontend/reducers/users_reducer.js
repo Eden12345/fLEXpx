@@ -19,6 +19,7 @@ const usersReducer = (oldState = defaultState, action) => {
       if (currentUser === null) {
         return oldState;
       } else {
+        //so that currentUser has updated arrays
         return Object.assign({}, oldState, { [currentUser.id]: currentUser });
       }
     default:

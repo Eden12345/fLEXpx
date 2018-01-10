@@ -11,6 +11,7 @@ const sessionReducer = (oldState = defaultState, action) => {
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
       const currentUser = action.currentUser;
+      //so that currentUser has updated arrays
       return Object.assign({}, oldState, { currentUser });
     default:
       return oldState;
