@@ -51,6 +51,11 @@ class NavBar extends React.Component {
     } else {
       this.setState({hidebar: ''});
     }
+
+    if (this.props.location.pathname != nextProps.location.pathname ||
+      this.props.location.search != nextProps.location.search) {
+      this.setState({search: ''});
+    }
   }
 
   landingPage() {
@@ -79,7 +84,7 @@ class NavBar extends React.Component {
 
   handleKeyPress(e) {
     if (e.key === 'Enter') {
-      this.props.history.push(`/search?searchText=${this.state.search}`);
+      this.props.history.push(`/search?${this.state.search}`);
     }
   }
 

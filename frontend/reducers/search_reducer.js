@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 
-import {RECEIVE_SEARCH_USERS, RECEIVE_SEARCH_PHOTOS} from '../actions/search_actions';
+import {RECEIVE_SEARCH_USERS, RECEIVE_SEARCH_PHOTOS, CLEAR_SEARCH} from '../actions/search_actions';
 
 const defaultState = Object.freeze({
   users: [],
@@ -15,6 +15,8 @@ const searchReducer = (oldState = defaultState, action) => {
     case RECEIVE_SEARCH_PHOTOS:
       const photoArray = action.photoArray;
       return merge({}, oldState, { photos: photoArray });
+    case CLEAR_SEARCH:
+      return defaultState;
     default:
       return oldState;
   }
