@@ -241,6 +241,12 @@ body {
   width: 75px;
 }
 
+.right-side {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+}
+
 .profile-upload {
   display: flex;
   justify-content: space-between;

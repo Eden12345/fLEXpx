@@ -7,5 +7,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :photos, only: [:create, :index, :show]
     resources :follows, only: [:create, :destroy]
+    match "/photos/search", to: "photos#search", via: [:get]
+    match "/users/search", to: "users#search", via: [:get]
   end
 end

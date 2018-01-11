@@ -7,6 +7,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import ProfilePageContainer from './profile_page/profile_page_container';
 import HomeFeedContainer from './home_feed/home_feed_container';
 import LandingPage from './landing_page/landing_page';
+import SearchContainer from './search/search_container';
 
 
 const App = () => (
@@ -18,6 +19,7 @@ const App = () => (
     <AuthRoute path="/signup" component={SignUpContainer} />
     <ProtectedRoute path="/homefeed" component={HomeFeedContainer} />
     <ProtectedRoute path="/profile/:userId" component={ProfilePageContainer} />
+    <ProtectedRoute path="/search" component={SearchContainer} />
   </div>
 );
 

@@ -18,6 +18,7 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    
     render "/api/users/show.json.jbuilder"
   end
 
@@ -32,7 +33,11 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def search
+    @users = User.where("username ILIKE ?", "%#{params[:search_text]}%").all
 
+    render "/api/users/search.json.jbuilder"
+  end
 
   private
 

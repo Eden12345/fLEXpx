@@ -29,6 +29,12 @@ class Api::PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
   end
 
+  def search
+    @photos = Photo.where("title ILIKE ?", "%#{params[:search_text]}%").all
+
+    render "/api/photos/search.json.jbuilder"
+  end
+
   private
 
   def photo_params

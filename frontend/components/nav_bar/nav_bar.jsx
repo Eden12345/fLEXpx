@@ -14,12 +14,19 @@ class NavBar extends React.Component {
       logsi: '',
       login: '',
       signup: '',
+      search: '',
       // hidebar: '',
       uploadModal: false
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+
     this.sessionLinks = this.sessionLinks.bind(this);
+
     this.landingPage = this.landingPage.bind(this);
     this.regularPage = this.regularPage.bind(this);
+
     this.turnOnUploadModal = this.turnOnUploadModal.bind(this);
     this.displayUploadModal = this.displayUploadModal.bind(this);
   }
@@ -39,11 +46,11 @@ class NavBar extends React.Component {
       this.regularPage();
     }
 
-    // if (nextProps.maximizeOn) {
-    //   setTimeout(() => this.setState({hidebar: "nav-bar-hidden"}), 1000);
-    // } else {
-    //   this.setState({hidebar: ''});
-    // }
+    if (nextProps.maximizeOn) {
+      setTimeout(() => this.setState({hidebar: "nav-bar-hidden"}), 1000);
+    } else {
+      this.setState({hidebar: ''});
+    }
   }
 
   landingPage() {
@@ -64,6 +71,16 @@ class NavBar extends React.Component {
       login: '',
       signup: ''
     });
+  }
+
+  handleChange(e) {
+    this.setState({search: e.currentTarget.value});
+  }
+
+  handleKeyPress(e) {
+    if (e.key === 'Enter') {
+      this.props.history.push(`/search?searchText=${this.state.search}`);
+    }
   }
 
 
@@ -106,17 +123,26 @@ class NavBar extends React.Component {
   render() {
     if (this.props.maximizeOn) {
       return (
-        <section className={`nav-bar ${this.state.navbar} animated fadeOut nav-bar-hidden`}>
+        <section className={`nav-bar ${this.state.navbar} animated fadeOut ${this.state.hidebar}`}>
           <Link to="/homefeed" className={`button site-name ${this.state.sitename}`}>fLEXpx</Link>
           {this.props.currentUser ?
-            <div className="profile-upload">
-              <ProfileDropdown
-                currentUser={this.props.currentUser}
-                logout={this.props.logout}
-                getPhoto={this.props.getPhoto}
-                photos={this.props.photos} />
-              <button className="upload-button" onClick={this.turnOnUploadModal}>Upload</button>
-              {this.displayUploadModal()}
+            <div className="right-side">
+
+              <input className="search-bar"
+                value={this.state.search}
+                onChange={this.handleChange}
+                onKeyPress={this.handleKeyPress} />
+
+              <div className="profile-upload">
+                <ProfileDropdown
+                  currentUser={this.props.currentUser}
+                  logout={this.props.logout}
+                  getPhoto={this.props.getPhoto}
+                  photos={this.props.photos} />
+                <button className="upload-button" onClick={this.turnOnUploadModal}>Upload</button>
+                {this.displayUploadModal()}
+              </div>
+
             </div> : this.sessionLinks()}
           </section>
         );
@@ -125,14 +151,23 @@ class NavBar extends React.Component {
         <section className={`nav-bar ${this.state.navbar} animated fadeIn`}>
           <Link to="/homefeed" className={`button site-name ${this.state.sitename}`}>fLEXpx</Link>
           {this.props.currentUser ?
-            <div className="profile-upload">
-              <ProfileDropdown
-                currentUser={this.props.currentUser}
-                logout={this.props.logout}
-                getPhoto={this.props.getPhoto}
-                photos={this.props.photos} />
-              <button className="upload-button" onClick={this.turnOnUploadModal}>Upload</button>
-              {this.displayUploadModal()}
+            <div className="right-side">
+
+              <input className="search-bar"
+                value={this.state.search}
+                onChange={this.handleChange}
+                onKeyPress={this.handleKeyPress} />
+
+              <div className="profile-upload">
+                <ProfileDropdown
+                  currentUser={this.props.currentUser}
+                  logout={this.props.logout}
+                  getPhoto={this.props.getPhoto}
+                  photos={this.props.photos} />
+                <button className="upload-button" onClick={this.turnOnUploadModal}>Upload</button>
+                {this.displayUploadModal()}
+              </div>
+
             </div> : this.sessionLinks()}
           </section>
         );
