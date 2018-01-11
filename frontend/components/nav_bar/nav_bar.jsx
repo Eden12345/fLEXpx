@@ -14,7 +14,7 @@ class NavBar extends React.Component {
       logsi: '',
       login: '',
       signup: '',
-      hidebar: '',
+      // hidebar: '',
       uploadModal: false
     };
     this.sessionLinks = this.sessionLinks.bind(this);
@@ -39,11 +39,11 @@ class NavBar extends React.Component {
       this.regularPage();
     }
 
-    if (nextProps.maximizeOn) {
-      setTimeout(() => this.setState({hidebar: "nav-bar-hidden"}), 1000);
-    } else {
-      this.setState({hidebar: ''});
-    }
+    // if (nextProps.maximizeOn) {
+    //   setTimeout(() => this.setState({hidebar: "nav-bar-hidden"}), 1000);
+    // } else {
+    //   this.setState({hidebar: ''});
+    // }
   }
 
   landingPage() {
@@ -106,7 +106,7 @@ class NavBar extends React.Component {
   render() {
     if (this.props.maximizeOn) {
       return (
-        <section className={`nav-bar ${this.state.navbar} animated fadeOut ${this.state.hidebar}`}>
+        <section className={`nav-bar ${this.state.navbar} animated fadeOut nav-bar-hidden`}>
           <Link to="/homefeed" className={`button site-name ${this.state.sitename}`}>fLEXpx</Link>
           {this.props.currentUser ?
             <div className="profile-upload">
@@ -122,7 +122,7 @@ class NavBar extends React.Component {
         );
     } else {
       return (
-        <section className={`nav-bar ${this.state.navbar} animated fadeIn ${this.state.hidebar}`}>
+        <section className={`nav-bar ${this.state.navbar} animated fadeIn`}>
           <Link to="/homefeed" className={`button site-name ${this.state.sitename}`}>fLEXpx</Link>
           {this.props.currentUser ?
             <div className="profile-upload">
