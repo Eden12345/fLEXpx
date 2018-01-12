@@ -13,18 +13,40 @@ Photo.destroy_all
 
 me = User.find(1)
 
-nature = User.new(username: "Nature Stuffs", password: "nature")
+nature = User.new(username: "nature stuffs", password: "nature")
 nature.save!
-city = User.new(username: "City Dweller", password: "city")
+city = User.new(username: "city dweller", password: "city")
 city.save!
-arch = User.new(username: "Dank Architecture", password: "architecture")
+arch = User.new(username: "dank architecture", password: "architecture")
 arch.save!
-food = User.new(username: "Food Obsessed", password: "food")
+food = User.new(username: "food obsessed", password: "food")
 food.save!
-animal = User.new(username: "Animal Lover", password: "animal")
+animal = User.new(username: "animal lover", password: "animal")
 animal.save!
 
 
+ee = Photo.new(title: "Scared Potato", uploader_id: food.id)
+ee.image = "https://s3.us-east-2.amazonaws.com/flexpx-dev/food/potato-french-fries.jpeg"
+ee.save!
+food.profile_photo_id = ee.id
+
+ff = Photo.new(title: "Spices In Spoons", uploader_id: food.id)
+ff.image = "https://s3.us-east-2.amazonaws.com/flexpx-dev/food/spices-in-spoons.jpeg"
+ff.save!
+food.banner_photo_id = ff.id
+
+gg = Photo.new(title: "Pup In Cup (best doggo ever)", uploader_id: animal.id)
+gg.image = "https://s3.us-east-2.amazonaws.com/flexpx-dev/animals/dog-in-cup.jpeg"
+gg.save!
+animal.banner_photo_id = gg.id
+
+hh = Photo.new(title: "Cat Nap", uploader_id: animal.id)
+hh.image = "https://s3.us-east-2.amazonaws.com/flexpx-dev/animals/cat-sleeping.jpeg"
+
+ii = Photo.new(title: "Cute Bunny Rabbits", uploader_id: animal.id)
+ii.image = "https://s3.us-east-2.amazonaws.com/flexpx-dev/animals/rabbits-eating-grass.jpg"
+ii.save!
+animal.profile_photo_id = ii.id
 
 a = Photo.new(title: "Train Station", uploader_id: me.id)
 a.image = "https://s3.us-east-2.amazonaws.com/flexpx-dev/misc/amtrak.jpeg"
