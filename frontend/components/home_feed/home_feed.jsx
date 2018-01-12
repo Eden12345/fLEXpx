@@ -25,7 +25,7 @@ class HomeFeed extends React.Component {
     const that = this;
     if (this.props.currentUser.followeeIds.length === 0) {
       if (Object.values(that.props.photos).length > 1) {
-        return Object.values(that.props.photos).map((photo) => {
+        return Object.values(that.props.photos).reverse().map((photo) => {
           if (photo.uploader_id !== this.props.currentUser.id) {
             const uploader = that.props.users[photo.uploader_id];
             if (uploader) {
@@ -55,7 +55,7 @@ class HomeFeed extends React.Component {
       return that.props.currentUser.followeeUploads.map((userUploadsPair) => {
         const userId = Object.keys(userUploadsPair);
         if (that.props.users[userId]) {
-          return Object.values(userUploadsPair)[0].map((uploadId) => {
+          return Object.values(userUploadsPair)[0].reverse().map((uploadId) => {
             if (that.props.photos[uploadId]) {
               const profilePhotoId = that.props.users[userId].profile_photo_id;
               return (

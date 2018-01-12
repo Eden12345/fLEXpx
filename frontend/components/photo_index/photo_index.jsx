@@ -91,7 +91,7 @@ class PhotoIndex extends React.Component {
   displayPhotos() {
     if (this.props.users[parseInt(this.props.match.params.userId)]) {
       return (
-        Object.values(this.props.photos).map((photo) => {
+        Object.values(this.props.photos).reverse().map((photo) => {
           if (this.props.users[parseInt(this.props.match.params.userId)].photoIds.includes(photo.id)) {
             return (
               <li key={photo.id} className="profile-photo-index-item">
