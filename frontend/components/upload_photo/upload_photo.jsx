@@ -23,6 +23,9 @@ class UploadPhoto extends React.Component {
   componentWillReceiveProps(nextProps) {
     //NOTE: add getPhotosForUser if currentUser changes so that the new photo
     //will render if you're on your profile page
+
+    this.props.switchLoadingModal(false);
+
     if (Object.keys(nextProps.photos).length > Object.keys(this.props.photos).length) {
       this.closeForm();
     }
@@ -52,9 +55,12 @@ class UploadPhoto extends React.Component {
 
   handleSubmit (e) {
     // e.stopPropagation();
+    this.props.switchLoadingModal(true);
+    
     const formData = new FormData();
     formData.append("photo[title]", this.state.title);
     if (this.state.imageFile) formData.append("photo[image]", this.state.imageFile);
+
     this.props.uploadPhoto(formData);
   }
 
@@ -76,6 +82,20 @@ class UploadPhoto extends React.Component {
 
   //In case we need flex for the input options
   //<div className="upload-input-options"></div>
+
+  displaySpinner() {
+    // debugger
+    if (this.props.loading) {
+      return (
+        <section className="loading-background">
+          <div class="spinner">
+            <div class="cube1"></div>
+            <div class="cube2"></div>
+          </div>
+        </section>
+      );
+    }
+  }
 
   render() {
     return (
@@ -104,6 +124,7 @@ class UploadPhoto extends React.Component {
             </div>
           </form>
         </section>
+        {this.displaySpinner()}
       </div>
     );
   }

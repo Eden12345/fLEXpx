@@ -28,7 +28,6 @@ const usersReducer = (oldState = defaultState, action) => {
       const id = parseInt(Object.keys(action.photo));
       const upId = Object.values(action.photo)[0].uploader_id;
       changeState[upId].photoIds.push(id);
-      debugger
       return merge({}, oldState, changeState);
     default:
       return oldState;

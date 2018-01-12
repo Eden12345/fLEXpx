@@ -495,7 +495,7 @@ body {
 .upload-photo-display {
   width: 700px;
   height: 400px;
-  object-fit: contain;
+  object-fit: cover;
   border: none;
   border-radius: 3px;
 }
@@ -1142,6 +1142,15 @@ body {
 
 
 // LOADING MODAL
+
+.loading-background {
+  position: fixed;
+  z-index: 100;
+  background-color: black;
+  opacity: 0.3;
+  height: 100vh;
+  width: 100vw;
+}
 
 .spinner {
   margin: 100px auto;

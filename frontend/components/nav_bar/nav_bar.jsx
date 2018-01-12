@@ -134,6 +134,7 @@ class NavBar extends React.Component {
     if (this.props.maximizeOn) {
       return (
         <section className={`nav-bar ${this.state.navbar} animated fadeOut ${this.state.hidebar}`}>
+
           <Link to="/homefeed" className={`button site-name ${this.state.sitename}`}>fLEXpx</Link>
           {this.props.currentUser ?
             <div className="right-side">
