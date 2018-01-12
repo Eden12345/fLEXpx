@@ -8,7 +8,9 @@ class UploadPhoto extends React.Component {
     this.state = {
       title: "",
       imageFile: null,
-      imageUrl: null
+      imageUrl: null,
+      animation1: "fadeInDown",
+      animation2: "fadeIn"
     };
 
     this.updateTitle = this.updateTitle.bind(this);
@@ -60,7 +62,10 @@ class UploadPhoto extends React.Component {
     if (e) {
       e.preventDefault();
     }
-    this.props.switchUploadModal(false);
+
+    this.setState({animation1: "fadeOutUp"});
+    this.setState({animation2: "fadeOut"});
+    setTimeout(() => this.props.switchUploadModal(false), 1000);
   }
 
   //How can I add an element like the one below to replace the file-input one that looks ugly?
@@ -74,9 +79,9 @@ class UploadPhoto extends React.Component {
 
   render() {
     return (
-      <div className="modal-wrapper">
+      <div className={`modal-wrapper animated ${this.state.animation2}`}>
         <div className="modal-background"></div>
-        <section className="upload-form-box">
+        <section className={`upload-form-box animated ${this.state.animation1}`}>
           <p className="upload-form-title">Upload Photo</p>
           <form className="upload-form">
               <div className="title-input">

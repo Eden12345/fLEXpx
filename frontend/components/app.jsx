@@ -15,8 +15,8 @@ const App = () => (
     <NavBarContainer />
     <Route exact path="/" render={() => <Redirect to="/landing"/>}/>
     <AuthRoute exact path="/landing" component={LandingPage} />
-    <AuthRoute path="/login" component={LoginContainer} />
-    <AuthRoute path="/signup" component={SignUpContainer} />
+    <Route path="/login" component={LoginContainer} />
+    <Route path="/signup" component={SignUpContainer} />
     <ProtectedRoute path="/homefeed" component={HomeFeedContainer} />
     <ProtectedRoute path="/profile/:userId" component={ProfilePageContainer} />
     <ProtectedRoute path="/search" component={SearchContainer} />
@@ -26,5 +26,4 @@ const App = () => (
 export default App;
 
 
-// import LandingPageContainer from './langing_page/langing_page_container';
-// <Route exact path='/' component={LandingPageContainer}/>
+// can change login and sign up back to AuthRoute if you can figure out a different way to handle animations

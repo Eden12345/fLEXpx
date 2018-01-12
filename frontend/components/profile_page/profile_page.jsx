@@ -6,18 +6,30 @@ import PhotoIndexContainer from '../photo_index/photo_index_container';
 class ProfilePage extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = ({
+      ouHeader: ''
+    });
+
     this.profileHeader = this.profileHeader.bind(this);
     this.followButton = this.followButton.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    // if (nextProps.users[parseInt(this.props.match.params.userId)]) {
-    //   this.props.getPhoto(nextProps.users[parseInt(this.props.match.params.userId)].banner_photo_id);
-    //   this.props.getPhoto(nextProps.users[parseInt(this.props.match.params.userId)].profile_photo_id);
-    // }
+    if (parseInt(this.props.match.params.userId) !== this.props.currentUser.id) {
+      this.setState({ouHeader: 'other-user-header'});
+    } else {
+      this.setState({ouHeader: ''});
+    }
   }
 
   componentDidMount() {
+    if (parseInt(this.props.match.params.userId) !== this.props.currentUser.id) {
+      this.setState({ouHeader: 'other-user-header'});
+    } else {
+      this.setState({ouHeader: ''});
+    }
+
     this.props.getUser(parseInt(this.props.match.params.userId));
   }
 
@@ -56,7 +68,9 @@ class ProfilePage extends React.Component {
             className="banner-photo"></img>
           <img src={this.props.photos[profilePageOwner.profile_photo_id] ? this.props.photos[profilePageOwner.profile_photo_id].avatar : "https://s3.us-east-2.amazonaws.com/flexpx-dev/avatar.png"}
             className="profile-photo"></img>
-          <p className="profile-username">{profilePageOwner ? profilePageOwner.username : ""}</p>
+          <p className={`profile-username ${this.state.ouHeader}`}>
+            {profilePageOwner ? profilePageOwner.username : ""}
+          </p>
           {this.followButton()}
         </div>
       );
@@ -66,22 +80,23 @@ class ProfilePage extends React.Component {
           <div className="banner-photo missing-banner-photo"></div>
           <img src={this.props.photos[profilePageOwner.profile_photo_id] ? this.props.photos[profilePageOwner.profile_photo_id].avatar : "https://s3.us-east-2.amazonaws.com/flexpx-dev/avatar.png"}
             className="profile-photo profile-photo-missing-banner"></img>
-          <p className="profile-username missing-banner-username">
+          <p className={`profile-username ${this.state.ouHeader} missing-banner-username`}>
             {profilePageOwner ? profilePageOwner.username : ""}
           </p>
           {this.followButton()}
         </div>
       );
     } else {
-      //maybe we don't need the following method?
+      //maybe we don't need the following stuff?
+
+      // <div className="banner-photo missing-banner-photo"></div>
+      // <img src="https://s3.us-east-2.amazonaws.com/flexpx-dev/avatar.png"
+      //   className="profile-photo profile-photo-missing-banner"></img>
+      // <p className="profile-username missing-banner-username">
+      //   {profilePageOwner ? profilePageOwner.username : ""}
+      // </p>
       return (
         <div className="profile-header profile-header-missing-banner">
-          <div className="banner-photo missing-banner-photo"></div>
-          <img src="https://s3.us-east-2.amazonaws.com/flexpx-dev/avatar.png"
-            className="profile-photo profile-photo-missing-banner"></img>
-          <p className="profile-username missing-banner-username">
-            {profilePageOwner ? profilePageOwner.username : ""}
-          </p>
         </div>
       );
     }
