@@ -30,7 +30,7 @@ class ProfilePage extends React.Component {
 
       if (this.props.currentUser.followeeIds.includes(parseInt(this.props.match.params.userId))) {
         return (
-          <div className="button unfollow-button"
+          <div className="button follow-button"
             onClick={(e) => {
               e.stopPropagation();
               this.props.unFollowUser(parseInt(this.props.match.params.userId));}}>Unfollow</div>
