@@ -11,6 +11,9 @@
 
 Photo.destroy_all
 
+# NOTE: You need to change the banner_profile_id and profile_photo_id for
+# many users in this file if you want to re-seed
+
 me = User.new(username: "eden", password: "starwars")
 me.save!
 nature = User.new(username: "nature stuffs", password: "nature")
