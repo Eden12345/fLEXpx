@@ -11,15 +11,15 @@
 
 Photo.destroy_all
 
-me = User.find(1)
-
+me = User.new(username: "eden", password: "starwars")
+me.save!
 nature = User.new(username: "nature stuffs", password: "nature")
 nature.save!
-city = User.new(username: "city dweller", password: "city")
+city = User.new(username: "city dweller", password: "citybaby")
 city.save!
 arch = User.new(username: "dank architecture", password: "architecture")
 arch.save!
-food = User.new(username: "food obsessed", password: "food")
+food = User.new(username: "food obsessed", password: "foodie")
 food.save!
 animal = User.new(username: "animal lover", password: "animal")
 animal.save!
