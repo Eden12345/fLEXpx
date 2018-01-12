@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 const LandingPage = () => (
-  <main className="landing-page">
+  <main className="landing-page animated fadeIn">
 
     <div className="greeting">
       <p className="landing-page-text">Discover Photos and Upload Your Own</p>

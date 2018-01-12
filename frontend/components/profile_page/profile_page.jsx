@@ -104,7 +104,7 @@ class ProfilePage extends React.Component {
 
   render() {
     return (
-      <section className="profile-page">
+      <section className="profile-page animated fadeIn">
         {this.profileHeader()}
         <PhotoIndexContainer className="profile-page-photo-index"/>
       </section>

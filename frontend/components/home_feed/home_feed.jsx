@@ -91,7 +91,7 @@ class HomeFeed extends React.Component {
 
   render() {
     return (
-      <ul className="home-feed">
+      <ul className="home-feed animated fadeIn">
         {this.props.currentUser.followeeIds.length === 0 ? this.displayNFText() : ""}
         {this.displayPhotos()}
       </ul>

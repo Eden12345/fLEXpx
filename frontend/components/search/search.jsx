@@ -6,6 +6,8 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
 
+    // this.state = ({animation: "fadeIn"});
+
     this.displayUsers = this.displayUsers.bind(this);
     this.displayPhotos = this.displayPhotos.bind(this);
   }
@@ -115,7 +117,7 @@ class Search extends React.Component {
 
   render() {
     return (
-      <div className="search-page">
+      <div className={`search-page animated fadeIn`}>
         <section className="user-search">
           <p className="user-search-title">Users</p>
           <ul className="user-search-list">
