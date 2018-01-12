@@ -15,12 +15,14 @@ class NavBar extends React.Component {
       login: '',
       signup: '',
       search: '',
-      // hidebar: '',
+      // search: '🔍',
+      hidebar: '',
       uploadModal: false
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    // this.handleFocus = this.handleFocus.bind(this);
 
     this.sessionLinks = this.sessionLinks.bind(this);
 
@@ -88,6 +90,9 @@ class NavBar extends React.Component {
     }
   }
 
+  // handleFocus() {
+  //   this.setState({search: 'khhkb'});
+  // }
 
   sessionLinks() {
     if (this.props.location.pathname === "/login") {
