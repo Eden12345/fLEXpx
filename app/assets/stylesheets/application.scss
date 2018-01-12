@@ -448,9 +448,10 @@ body {
 .title-input-field {
   border-radius: 3px;
   border: 1px solid $midlightgrey;
-  width: 312px;
+  width: 280px;
   height: 30px;
   margin-top: 5px;
+  color: $textgrey;
   font-size: 16px;
   text-align: center;
 }
@@ -465,15 +466,22 @@ body {
   margin-top: 20px;
   width: 320px;
   height: 38px;
+  border: 1px solid $buttonblue;
   border-radius: 3px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: none;
-  background-color: $green;
+  // border: none;
+  background-color: white;
   font-size: 16px;
-  color: white;
+  // color: white;
+  color: $buttonblue;
   cursor: pointer;
+}
+
+.file-input-button:hover {
+  background-color: $buttonblue;
+  color: white;
 }
 
 .file-input-hidden {
@@ -1000,13 +1008,16 @@ body {
   padding: 4px;
   padding-left: 10px;
   padding-right: 10px;
-  color: $textgreylighter;
+  color: $buttonblue;
   font-size: 16px;
+  border: 1px solid $buttonblue;
+  border-radius: 3px;
   cursor: pointer;
 }
 
 .follow-button:hover {
-  border: 1px solid $green;
+  background-color: $buttonblue;
+  color: white;
   cursor: pointer;
 }
 
