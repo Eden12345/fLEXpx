@@ -15,9 +15,12 @@ class UploadPhoto extends React.Component {
 
     this.updateTitle = this.updateTitle.bind(this);
     this.updateFile = this.updateFile.bind(this);
+    this.clickFileSelector = this.clickFileSelector.bind(this);
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.closeForm = this.closeForm.bind(this);
-    this.clickFileSelector = this.clickFileSelector.bind(this);
+
+    this.displaySpinner = this.displaySpinner.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -29,6 +32,10 @@ class UploadPhoto extends React.Component {
     if (Object.keys(nextProps.photos).length > Object.keys(this.props.photos).length) {
       this.closeForm();
     }
+  }
+
+  componentWillUnmount() {
+    this.props.clearPhotoErrors();
   }
 
   updateTitle (e) {
@@ -56,7 +63,7 @@ class UploadPhoto extends React.Component {
   handleSubmit (e) {
     // e.stopPropagation();
     this.props.switchLoadingModal(true);
-    
+
     const formData = new FormData();
     formData.append("photo[title]", this.state.title);
     if (this.state.imageFile) formData.append("photo[image]", this.state.imageFile);
@@ -97,12 +104,26 @@ class UploadPhoto extends React.Component {
     }
   }
 
+  renderErrors() {
+    debugger
+    return(
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   render() {
     return (
       <div className={`modal-wrapper animated ${this.state.animation2}`}>
         <div className="modal-background"></div>
         <section className={`upload-form-box animated ${this.state.animation1}`}>
           <p className="upload-form-title">Upload Photo</p>
+          {this.renderErrors()}
           <form className="upload-form">
               <div className="title-input">
                 <p className="title-input-label">Title</p>
