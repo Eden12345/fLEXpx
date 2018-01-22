@@ -550,6 +550,11 @@ body {
   outline: none;
 }
 
+.upload-errors {
+  position: fixed;
+  margin-top: 68px;
+}
+
 
 
 
@@ -1147,7 +1152,7 @@ body {
   position: fixed;
   z-index: 100;
   background-color: black;
-  opacity: 0.6;
+  opacity: 0.5;
   height: 100vh;
   width: 100vw;
 }
@@ -1175,6 +1180,14 @@ body {
 .cube2 {
   -webkit-animation-delay: -0.9s;
   animation-delay: -0.9s;
+}
+
+.loading-message {
+  margin: auto;
+  top: 63%;
+  position: relative;
+  text-align: center;
+  color: white;
 }
 
 @-webkit-keyframes sk-cubemove {

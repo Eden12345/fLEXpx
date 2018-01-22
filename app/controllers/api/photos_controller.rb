@@ -9,7 +9,7 @@ class Api::PhotosController < ApplicationController
       if @photo.save
         render "/api/photos/show.json.jbuilder"
       else
-        render json: ["You need to provide a title and valid image format"], status: 406
+        render json: ["(You need to provide a title and use a valid image format)"], status: 406
       end
 
     else

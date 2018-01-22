@@ -103,6 +103,7 @@ class UploadPhoto extends React.Component {
             <div className="cube1"></div>
             <div className="cube2"></div>
           </div>
+          <p className="loading-message">&nbsp;&nbsp;This could take a minute or two...</p>
         </section>
       );
     }
