@@ -27,10 +27,12 @@ class UploadPhoto extends React.Component {
     //NOTE: add getPhotosForUser if currentUser changes so that the new photo
     //will render if you're on your profile page
 
-    this.props.switchLoadingModal(false);
 
     if (Object.keys(nextProps.photos).length > Object.keys(this.props.photos).length) {
+      this.props.switchLoadingModal(false);
       this.closeForm();
+    } else if (nextProps.errors.length > 0) {
+      this.props.switchLoadingModal(false);
     }
   }
 
@@ -62,6 +64,8 @@ class UploadPhoto extends React.Component {
 
   handleSubmit (e) {
     // e.stopPropagation();
+    this.props.clearPhotoErrors();
+
     this.props.switchLoadingModal(true);
 
     const formData = new FormData();
@@ -95,9 +99,9 @@ class UploadPhoto extends React.Component {
     if (this.props.loading) {
       return (
         <section className="loading-background">
-          <div class="spinner">
-            <div class="cube1"></div>
-            <div class="cube2"></div>
+          <div className="spinner">
+            <div className="cube1"></div>
+            <div className="cube2"></div>
           </div>
         </section>
       );
@@ -105,9 +109,8 @@ class UploadPhoto extends React.Component {
   }
 
   renderErrors() {
-    debugger
     return(
-      <ul>
+      <ul className="upload-errors">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
