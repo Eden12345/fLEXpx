@@ -6,7 +6,8 @@ class PhotoIndex extends React.Component {
     super(props);
     this.state = {
       maximize: null,
-      animation: ""
+      animation: "",
+      title: ""
     };
     this.displayPhotos = this.displayPhotos.bind(this);
     this.turnOnMaximize = this.turnOnMaximize.bind(this);
@@ -28,6 +29,14 @@ class PhotoIndex extends React.Component {
     // else if (nextProps.currentUser !== this.props.currentUser)
     // this.props.getUser(parseInt(nextProps.match.params.userId));
     // this.props.getPhotosForUser(parseInt(nextProps.match.params.userId));
+  }
+
+  showTitle(photoTitle) {
+    this.setState({ title: photoTitle });
+  }
+
+  hideTitle() {
+    this.setState({ title: "" });
   }
 
   turnOnMaximize(photoId) {
@@ -97,7 +106,10 @@ class PhotoIndex extends React.Component {
               <li key={photo.id} className="profile-photo-index-item">
                 <img src={photo.thumb}
                   className="profile-photo-index-item-photo"
-                  onClick={(e) => {e.stopPropagation(); this.turnOnMaximize(photo.id);}}></img>
+                  onClick={(e) => {e.stopPropagation(); this.turnOnMaximize(photo.id);}}
+                  onMouseEnter={(e) => {e.stopPropagation(); this.showTitle(photo.title);}}
+                  onMouseLeave={(e) => {e.stopPropagation(); this.hideTitle();}}></img>
+                <p class="photo-index-title">{photo.title === this.state.title ? photo.title : ""}</p>
                 {this.maximizePhoto(photo)}
               </li>
             );
