@@ -9,4 +9,5 @@ json.set! user.id do
       json.array! followee.photos.pluck(:id)
     end
   end
+  json.followers user.followers.count
 end

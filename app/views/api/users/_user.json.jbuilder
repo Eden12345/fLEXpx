@@ -8,3 +8,4 @@ json.followeeUploads user.followees.each do |followee|
     json.array! followee.photos.pluck(:id)
   end
 end
+json.followers user.followers.count

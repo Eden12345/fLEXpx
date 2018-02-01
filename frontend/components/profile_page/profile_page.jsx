@@ -13,6 +13,7 @@ class ProfilePage extends React.Component {
 
     this.profileHeader = this.profileHeader.bind(this);
     this.followButton = this.followButton.bind(this);
+    this.followerCount = this.followerCount.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -59,6 +60,19 @@ class ProfilePage extends React.Component {
     }
   }
 
+  followerCount() {
+    const profilePageOwner = this.props.users[parseInt(this.props.match.params.userId)];
+    if (parseInt(this.props.match.params.userId) === this.props.currentUser.id) {
+      return (
+        <p className="followers-count my-followers">{profilePageOwner.followers} followers</p>
+      );
+    } else {
+      return (
+        <p className="followers-count their-followers">{profilePageOwner.followers} followers</p>
+      );
+    }
+  }
+
   profileHeader() {
     const profilePageOwner = this.props.users[parseInt(this.props.match.params.userId)];
     if ((profilePageOwner && this.props.photos) && this.props.photos[profilePageOwner.banner_photo_id]) {
@@ -72,6 +86,7 @@ class ProfilePage extends React.Component {
             {profilePageOwner ? profilePageOwner.username : ""}
           </p>
           {this.followButton()}
+          {this.followerCount()}
         </div>
       );
     } else if (profilePageOwner && this.props.photos) {
@@ -84,17 +99,10 @@ class ProfilePage extends React.Component {
             {profilePageOwner ? profilePageOwner.username : ""}
           </p>
           {this.followButton()}
+          {this.followerCount()}
         </div>
       );
     } else {
-      //maybe we don't need the following stuff?
-
-      // <div className="banner-photo missing-banner-photo"></div>
-      // <img src="https://s3.us-east-2.amazonaws.com/flexpx-dev/avatar.png"
-      //   className="profile-photo profile-photo-missing-banner"></img>
-      // <p className="profile-username missing-banner-username">
-      //   {profilePageOwner ? profilePageOwner.username : ""}
-      // </p>
       return (
         <div className="profile-header profile-header-missing-banner">
         </div>

@@ -10,5 +10,6 @@ users.each do |user|
         json.array! followee.photos.pluck(:id)
       end
     end
+    json.followers user.followers.count
   end
 end
