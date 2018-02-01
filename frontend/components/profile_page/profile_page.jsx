@@ -64,11 +64,15 @@ class ProfilePage extends React.Component {
     const profilePageOwner = this.props.users[parseInt(this.props.match.params.userId)];
     if (parseInt(this.props.match.params.userId) === this.props.currentUser.id) {
       return (
-        <p className="followers-count my-followers">{profilePageOwner.followers} followers</p>
+        <p className="followers-count my-followers">{profilePageOwner.followers}
+          {profilePageOwner.followers === 1 ? " follower" : " followers"}
+        </p>
       );
     } else {
       return (
-        <p className="followers-count their-followers">{profilePageOwner.followers} followers</p>
+        <p className="followers-count their-followers">{profilePageOwner.followers}
+          {profilePageOwner.followers === 1 ? " follower" : " followers"}
+        </p>
       );
     }
   }
