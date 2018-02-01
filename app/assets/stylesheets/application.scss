@@ -697,6 +697,7 @@ body {
 .no-followees-text {
   color: $mediumgrey;
   font-size: 26px;
+  font-weight: lighter;
   text-align: center;
   padding: 60px;
   padding-right: 200px;
@@ -757,7 +758,7 @@ body {
   padding-top: 20px;
   padding-left: 20px;
   font-size: 20px;
-  // font-weight: lighter;
+  font-weight: lighter;
 }
 
 
@@ -784,6 +785,7 @@ body {
 
 .user-search-title {
   font-size: 30px;
+  font-weight: lighter;
   color: $textgreylighter;
   width: auto;
   text-align: center;
@@ -850,6 +852,7 @@ body {
 
 .photo-search-title {
   font-size: 30px;
+  font-weight: lighter;
   color: $textgreylighter;
   width: auto;
   text-align: center;
@@ -874,8 +877,8 @@ body {
   background-color: white;
   border: 1px solid $bordergrey;
   border-radius: 3px;
-  margin-top: 20px;
-  margin-bottom: 40px;
+  margin-top: 40px;
+  margin-bottom: 60px;
 }
 
 .photo-search-item-image {
@@ -897,7 +900,7 @@ body {
 
 .photo-search-item-title {
   font-size: 20px;
-  // font-weight: lighter;
+  font-weight: lighter;
 }
 
 .profile-link-prompt {
@@ -1107,6 +1110,7 @@ body {
   color: white;
   text-shadow: 0px 0px 10px black;
   font-size: 50px;
+  font-weight: lighter;
   position: fixed;
   margin-top: 5px;
   margin-right: 20px;
