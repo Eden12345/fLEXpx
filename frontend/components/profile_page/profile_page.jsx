@@ -22,6 +22,10 @@ class ProfilePage extends React.Component {
     } else {
       this.setState({ouHeader: ''});
     }
+    
+    if (this.props.currentUser !== nextProps.currentUser) {
+      this.props.getUser(this.props.match.params.userId);
+    }
   }
 
   componentDidMount() {
