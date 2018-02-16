@@ -6,7 +6,7 @@ import SignUpContainer from './session/sign_up_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import ProfilePageContainer from './profile_page/profile_page_container';
 import HomeFeedContainer from './home_feed/home_feed_container';
-import LandingPage from './landing_page/landing_page';
+import LandingPageContainer from './landing_page/landing_page_container';
 import SearchContainer from './search/search_container';
 
 
@@ -14,7 +14,7 @@ const App = () => (
   <div className="main-wrapper">
     <NavBarContainer />
     <Route exact path="/" render={() => <Redirect to="/landing"/>}/>
-    <AuthRoute exact path="/landing" component={LandingPage} />
+    <AuthRoute exact path="/landing" component={LandingPageContainer} />
     <Route path="/login" component={LoginContainer} />
     <Route path="/signup" component={SignUpContainer} />
     <ProtectedRoute path="/homefeed" component={HomeFeedContainer} />
