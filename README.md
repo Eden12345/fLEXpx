@@ -7,19 +7,15 @@ fLEXpx is a full stack single page web app inspired by 500px. It was built with 
 
 ## Description
 
-Landing page, which does not display any profile options in the nav bar until the visiting user is bootstrapped:
+The landing page does not display any profile options in the nav bar until the visiting user is bootstrapped through the custom user authentication portal.
 
 ![screencap](https://github.com/Eden12345/fLEXpx/blob/master/assets/screencaps/screencap_landing.png)
 
-Custom user authentication portal:
-
-![screencap](https://github.com/Eden12345/fLEXpx/blob/master/assets/screencaps/screencap_signup.png)
-
-Utilized flex-box display and z-index to format the profile page layout:
+The profile page utilizes flex-box display and z-index so that its layout is smooth and responsive.
 
 ![screencap](https://github.com/Eden12345/fLEXpx/blob/master/assets/screencaps/screencap_profile.png)
 
-Used the Paperclip gem to allow users to upload content to my AWS server through my Ruby on Rails backend:
+The Paperclip gem to allow users to upload content to the app's AWS server through the Ruby on Rails backend.
 
 ![screencap](https://github.com/Eden12345/fLEXpx/blob/master/assets/screencaps/screencap_upload.png)
 
@@ -51,8 +47,8 @@ Week 2, Day 2:
   * Add Follow feature
   * Add Home Feed
 
-Week 2, Day 2:
-  * Add
+Week 2, Day 3:
+  * Add Upload feature
 
 Week 2, Day 4:
   * Add User/Photo Search
@@ -61,4 +57,4 @@ Week 2, Day 4:
 ## Upcoming Changes
 
   * Likes feature - this will allow users to Like photos and view all of their Likes through a link in their profile drop-down menu
-  * fLEXible ordering -- users will be able to redorder their uploaded images on their profile pages
+  * fLEXible ordering -- users will be able to reorder their uploaded images on their profile pages
