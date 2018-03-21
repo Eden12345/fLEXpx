@@ -14,7 +14,7 @@ const mapStateToProps = ({ entities, search }) => ({
 
 const mapDispatchToProps = dispatch => ({
   getPhotosForUser: (userId) => dispatch(getPhotosForUser(userId)),
-  getPhoto: (photoId) => dispatch(getPhotosForUser(photoId)),
+  getPhoto: (photoId) => dispatch(getPhoto(photoId)),
   getUser: (userId) => dispatch(getUser(userId)),
   searchUsers: (searchText) => dispatch(searchUsers(searchText)),
   searchPhotos: (searchText) => dispatch(searchPhotos(searchText)),
