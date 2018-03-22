@@ -27,8 +27,7 @@ class UploadPhoto extends React.Component {
     //NOTE: add getPhotosForUser if currentUser changes so that the new photo
     //will render if you're on your profile page
 
-
-    if (Object.keys(nextProps.photos).length > Object.keys(this.props.photos).length) {
+    if (nextProps.currentUser.photoIds.length > this.props.currentUser.photoIds.length) {
       this.props.switchLoadingModal(false);
       this.closeForm();
     } else if (nextProps.errors.length > 0) {
@@ -64,6 +63,7 @@ class UploadPhoto extends React.Component {
 
   handleSubmit (e) {
     // e.stopPropagation();
+    e.preventDefault();
     this.props.clearPhotoErrors();
 
     this.props.switchLoadingModal(true);
