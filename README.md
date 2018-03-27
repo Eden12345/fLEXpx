@@ -1,6 +1,6 @@
 # fLEXpx
 
-fLEXpx is a full stack single page web app inspired by 500px. It was built with React/Redux and Ruby on Rails. It also has a custom user authentication pattern that implements BCrypt for end-to-end security, utilizes Paperclip/AWS for photo uploading, and has a Follow feature through ActiveRecord associations.
+fLEXpx is a full stack single page web app inspired by 500px. It was built with React/Redux and Ruby on Rails. It also has a custom user authentication pattern that implements BCrypt for end-to-end security, utilizes Paperclip/AWS for photo uploading, and has a Follow feature through ActiveRecord associations. The application is implemented with a RESTful API and a PostgreSQL database.
 
 [Live Site](http://flexpx.herokuapp.com/)
 
