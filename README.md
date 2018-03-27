@@ -9,7 +9,7 @@ fLEXpx is a full stack single page web app inspired by 500px. It was built with 
 
 ![screencap](https://github.com/Eden12345/fLEXpx/blob/master/assets/screencaps/screencap_landing.png)
 
-As this is a single page web app, components are reused on every page. On the landing page, the nav bar does not display any profile options until the visiting user is bootstrapped through the custom user authentication portal. This is because it is the same nav bar component that is rendered after a user successfully logs in.
+As this is a single page web app, components are reused on every page. On the landing page, for example, the nav bar does not display any profile options until the visiting user is bootstrapped through the custom user authentication portal since this is the same nav bar component that is rendered after a user successfully logs in.
 
 Clean, responsive styling techniques were paramount when coding the CSS for this app in order to reproduce the design quality of widely used photo sharing apps like 500px. The profile page utilizes flex-box display and z-index to ensure these design principles.
 
@@ -24,8 +24,9 @@ Languages/libraries/formats used on the frontend:
  * React
  * Redux
  * Javascript
- * HTML
  * JBuilder
+ * CSS
+ * HTML
 
 Languages/libraries/formats used on the backend:
  * Ruby
