@@ -20,7 +20,7 @@ As this site hosts images uploaded by external users, Amazon Web Services seemed
 
 ## Languages Used
 
-Languages/libraries/formats used on the frontend:
+Languages/libraries used on the frontend:
  * React
  * Redux
  * Javascript
@@ -28,7 +28,7 @@ Languages/libraries/formats used on the frontend:
  * CSS
  * HTML
 
-Languages/libraries/formats used on the backend:
+Languages/libraries used on the backend:
  * Ruby
  * Rails
  * SQL
