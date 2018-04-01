@@ -74,7 +74,7 @@ class HomeFeed extends React.Component {
                 </li>
               );
             }
-          });
+          }).sort((a, b) => b.key - a.key);
         } else {
           return;
         }
