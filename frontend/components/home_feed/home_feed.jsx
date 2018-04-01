@@ -55,7 +55,7 @@ class HomeFeed extends React.Component {
       return that.props.currentUser.followeeUploads.map((userUploadsPair) => {
         const userId = Object.keys(userUploadsPair);
         if (that.props.users[userId]) {
-          return Object.values(userUploadsPair)[0].reverse().map((uploadId) => {
+          return Object.values(userUploadsPair)[0].map((uploadId) => {
             if (that.props.photos[uploadId]) {
               const profilePhotoId = that.props.users[userId].profile_photo_id;
               return (
