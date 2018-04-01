@@ -76,7 +76,7 @@ class HomeFeed extends React.Component {
             }
           });
         } else {
-          return (<div></div>);
+          return;
         }
       });
 
