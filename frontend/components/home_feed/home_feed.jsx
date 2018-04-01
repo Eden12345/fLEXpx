@@ -52,10 +52,10 @@ class HomeFeed extends React.Component {
 
     } else {
 
-      return that.props.currentUser.followeeUploads.map((userUploadsPair) => {
+      const listArray = that.props.currentUser.followeeUploads.map((userUploadsPair) => {
         const userId = Object.keys(userUploadsPair);
         if (that.props.users[userId]) {
-          return Object.values(userUploadsPair)[0].map((uploadId) => {
+          const temp = Object.values(userUploadsPair)[0].map((uploadId) => {
             if (that.props.photos[uploadId]) {
               const profilePhotoId = that.props.users[userId].profile_photo_id;
               return (
@@ -74,11 +74,17 @@ class HomeFeed extends React.Component {
                 </li>
               );
             }
-          }).sort((a, b) => b.key - a.key);
+          });
+          return temp;
         } else {
           return;
         }
       });
+      let returnArray = [];
+      listArray.forEach((photoObj) => {
+        returnArray = returnArray.concat(photoObj);
+      });
+      return returnArray.sort((a, b) => b.key - a.key);
 
     }
   }
