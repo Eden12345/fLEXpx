@@ -109,14 +109,12 @@ class PhotoIndex extends React.Component {
                   onClick={(e) => {e.stopPropagation(); this.turnOnMaximize(photo.id);}}
                   onMouseEnter={(e) => {e.stopPropagation(); this.showTitle(photo.title);}}
                   onMouseLeave={(e) => {e.stopPropagation(); this.hideTitle();}}></img>
-                <p class="photo-index-title">{photo.title === this.state.title ? photo.title : ""}</p>
+                <p className="photo-index-title">{photo.title === this.state.title ? photo.title : ""}</p>
                 {this.maximizePhoto(photo)}
               </li>
             );
           } else {
-            return (
-              <li className={photo.id}></li>
-            );
+            return;
           }
         })
       );

@@ -55,7 +55,7 @@ class Search extends React.Component {
         if (user) {
           const profilePhotoId = user.profile_photo_id;
           return (
-            <li className="user-search-item">
+            <li className="user-search-item" key={user.id}>
               <div className="user-search-item-header">
                 <img src={(profilePhotoId && that.props.photos[profilePhotoId]) ? that.props.photos[profilePhotoId].avatar : "https://s3.us-east-2.amazonaws.com/flexpx-dev/avatar.png"}
                   className="user-search-item-avatar" />
@@ -83,7 +83,7 @@ class Search extends React.Component {
 
         if (photo) {
           return (
-            <li className="photo-search-item">
+            <li className="photo-search-item" key={photo.id}>
               <img src={photo.large} className="photo-search-item-image"/>
               <div className="photo-search-item-title-container">
                 <p className="photo-search-item-title">{photo.title}</p>
