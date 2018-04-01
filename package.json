@@ -32,8 +32,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "inline-environment-variables-webpack-plugin": "^1.2.1"
-  }
+  "license": "ISC"
 }
