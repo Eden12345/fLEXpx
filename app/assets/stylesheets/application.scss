@@ -345,7 +345,8 @@ body {
   justify-content: flex-start;
   align-items: flex-start;
   padding-top: 10px;
-  height: 96px;
+  padding-bottom: 8px;
+  height: auto;
   width: 150px;
   color: $textgrey;
 }
@@ -355,6 +356,7 @@ body {
   padding-bottom: 2px;
   padding-left: 8px;
   font-weight: lighter;
+  text-align: left;
   /* border-bottom: 1px solid lightgrey; */
 }
 
