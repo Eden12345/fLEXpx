@@ -27,7 +27,7 @@ class SessionForm extends React.Component {
       setTimeout(() => {
         this.demoUser();
         this.props.switchLoginAnimation(false);
-      }, 1000);
+      }, 750);
     }
   }
 
@@ -47,7 +47,9 @@ class SessionForm extends React.Component {
       password: "starwars"
     });
 
-    this.props.login({user: {username: "eden", password: "starwars"}});
+    setTimeout(() => {
+      this.props.login({user: {username: "eden", password: "starwars"}});
+    }, 250);
   }
 
   handleSubmit(e) {
