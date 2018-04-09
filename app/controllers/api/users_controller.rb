@@ -11,6 +11,8 @@ class Api::UsersController < ApplicationController
       render "/api/users/_user.json.jbuilder"
     elsif User.find_by(username: @user.username) != nil
       render json: ["This username has already been taken"], status: 404
+    elsif @user.password.length < 6
+      render json: ["Your password must be at least 6 characters"], status: 404
     else
       render json: ["You need to provide a username and a password"], status: 404
     end
@@ -18,7 +20,7 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    
+
     render "/api/users/show.json.jbuilder"
   end
 
