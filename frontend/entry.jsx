@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //testing
   // window.dispatch = store.dispatch;
-  // window.getState = store.getState;
+  window.getState = store.getState;
   // window.getPhotosForUser = getPhotosForUser;
 
   const root = document.getElementById('root');

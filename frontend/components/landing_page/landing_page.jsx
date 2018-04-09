@@ -10,7 +10,10 @@ class LandingPage extends React.Component {
   }
 
   demoUser() {
-    this.props.login({user: {username: "eden", password: "starwars"}});
+    this.props.switchLoginAnimation(true);
+    this.props.history.push('/login');
+    
+    // this.props.login({user: {username: "eden", password: "starwars"}});
   }
 
   render() {

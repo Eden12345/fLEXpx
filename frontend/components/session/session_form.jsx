@@ -22,6 +22,15 @@ class SessionForm extends React.Component {
     }
   }
 
+  componentDidMount() {
+    if (this.props.loginAnimation) {
+      setTimeout(() => {
+        this.demoUser();
+        this.props.switchLoginAnimation(false);
+      }, 1000);
+    }
+  }
+
   componentWillUnmount() {
     this.props.clearSessionErrors();
   }
@@ -33,10 +42,17 @@ class SessionForm extends React.Component {
   }
 
   demoUser() {
+    this.setState({
+      username: "eden",
+      password: "starwars"
+    });
+
     this.props.login({user: {username: "eden", password: "starwars"}});
   }
 
   handleSubmit(e) {
+    this.props.clearSessionErrors();
+    this.setState({animation: ''});
     if (e) {
       e.preventDefault();
     }
@@ -74,10 +90,6 @@ class SessionForm extends React.Component {
       </ul>
     );
   }
-
-  //add "animated" before ${this.state.animation} to bring animations back to session form
-  //NOTE: You'll also need to change the AuthRoute for LoginContainer and SignUpContainer
-  //back to Route for the fadeOutUp animation to ever get set
 
   render() {
     return (

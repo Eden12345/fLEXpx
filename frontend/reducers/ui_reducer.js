@@ -1,11 +1,17 @@
 import merge from 'lodash/merge';
 
-import {CHANGE_UPLOAD_MODAL, CHANGE_MAXIMIZATION, CHANGE_LOADING_MODAL} from '../actions/ui_actions';
+import {
+  CHANGE_UPLOAD_MODAL,
+  CHANGE_MAXIMIZATION,
+  CHANGE_LOADING_MODAL,
+  CHANGE_LOGIN_ANIMATION
+} from '../actions/ui_actions';
 
 const defaultState = Object.freeze({
   uploadModalOn: false,
   maximizeOn: false,
-  loading: false
+  loading: false,
+  loginAnimation: false
 });
 
 const uiReducer = (oldState = defaultState, action) => {
@@ -19,6 +25,9 @@ const uiReducer = (oldState = defaultState, action) => {
     case CHANGE_LOADING_MODAL:
       const loadingBoolean = action.loadingBoolean;
       return merge({}, oldState, { loading: loadingBoolean });
+    case CHANGE_LOGIN_ANIMATION:
+      const loginAnimationBoolean = action.loginAnimationBoolean;
+      return merge({}, oldState, { loginAnimation: loginAnimationBoolean });
     default:
       return oldState;
   }
