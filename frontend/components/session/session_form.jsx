@@ -28,11 +28,7 @@ class SessionForm extends React.Component {
         this.demoUser();
         this.props.switchLoginAnimation(false);
       }, 750);
-    }
-
-    debugger
-
-    if (this.props.loggedIn === true) {
+    } else if (this.props.loggedIn === true) {
       this.setState({animation: 'fadeOutUp'});
       setTimeout(() => {this.props.history.push('/homefeed');}, 1300);
     }
