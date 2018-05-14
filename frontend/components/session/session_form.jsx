@@ -16,7 +16,7 @@ class SessionForm extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.loggedIn === true) {
       this.setState({animation: 'fadeOutUp'});
-      setTimeout(() => {this.props.history.push('/homefeed');}, 2000);
+      setTimeout(() => {this.props.history.push('/homefeed');}, 1300);
     } else if (nextProps.errors.length > 0){
       this.setState({animation: 'bounce'});
     }
@@ -28,6 +28,9 @@ class SessionForm extends React.Component {
         this.demoUser();
         this.props.switchLoginAnimation(false);
       }, 750);
+    } else if (this.props.loggedIn === true) {
+      this.setState({animation: 'fadeOutUp'});
+      setTimeout(() => {this.props.history.push('/homefeed');}, 1300);
     }
   }
 
